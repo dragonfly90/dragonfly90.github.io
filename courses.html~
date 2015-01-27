@@ -15,13 +15,13 @@
 <p><a href="https://vcl.ncsu.edu/">VCL</a></p>
 <h1>Tools</h1>
 <p style="color:red">install</p>
-<p style="color:blue  font-size:150%">apt-get install texlive</p>
+<p style="color:blue;font-size:150%">apt-get install texlive</p>
 <p style="color:red">Produce some output</p>
-<p style="color:blue  font-size:150%">latex test.tex</p>
+<p style="color:blue;font-size:150%">latex test.tex</p>
 <p style="color:red">view the output file with xdvi(hit q to quit)</p>
-<p style="color:blue  font-size:150%">xdvi test.dvi &</p>
+<p style="color:blue;font-size:150%">xdvi test.dvi &</p>
 <p style="color:red">produce a PDF</p>
-<p style="color:blue  font-size:150%">pdflatex test.tex</p>
+<p style="color:blue;font-size:150%">pdflatex test.tex</p>
 </center>
 </body>
 
