@@ -16,7 +16,8 @@
 <p><a href="http://www.emunix.emich.edu/~khailany/files/Normalization.htm">normal form</a></p>
 <p><a href="http://www.cs.bsu.edu/homepages/pvg/misc/uml/">UML</a><p>
 <p><a href="https://bitbucket.org/dragonfly90217">Bitbucket</a><p>
-<p><a href="https://zetcode.com/db/mysqlpython/">MySQL</a><p>
+<p><a href="http://zetcode.com/db/mysqlpython/">MySQL</a><p>
+<p><a href="pingpongRobot.html">PingPong Robot</a><p>
 <h1>Tools</h1>
 <p style="color:red">install</p>
 <p style="color:blue;font-size:150%">apt-get install texlive</p>
