@@ -6,15 +6,15 @@
 
 <body>
 <center>
-<p>Demo</p>
-<p><a href="http://www.omron.com/about/story/detail07.html">Omron<a></p>
-<p>Design</p>
-<p><a href="Design and Motion Control of a Ping Pong Robot.pdf">Design and Motion Control of a Ping Pong Robot.pdf</a></p>
-<p><a href="Research and Latest Development of Ping-Pong Robot Player.pdf">Research and Latest Development of Ping-Pong Robot Player.pdf</a></p>
-<p>Research</p>
-<p><a href="AnAdaptiveTrajectoryPredictionMethodforPing-PongRobots.pdf">An Adaptive Trajectory Prediction Method
+<p style="color:red;font-size:150%">Demo</p>
+<p style="color:blue"><a href="http://www.omron.com/about/story/detail07.html">Omron<a></p>
+<p style="color:red;font-size:150%">Design</p>
+<p style="color:blue"><a href="Design and Motion Control of a Ping Pong Robot.pdf">Design and Motion Control of a Ping Pong Robot.pdf</a></p>
+<p style="color:blue"><a href="Research and Latest Development of Ping-Pong Robot Player.pdf">Research and Latest Development of Ping-Pong Robot Player.pdf</a></p>
+<p style="color:red;font-size:150%">Research</p>
+<p style="color:blue"><a href="AnAdaptiveTrajectoryPredictionMethodforPing-PongRobots.pdf">An Adaptive Trajectory Prediction Method
 for Ping-Pong Robots.pdf</a></p>
-<p><a href="striking movements in robot table tennis.pdf">striking movements in robot table tennis.pdf</a></p>
+<p style="color:blue"><a href="striking movements in robot table tennis.pdf">striking movements in robot table tennis.pdf</a></p>
 
 
 </center>
