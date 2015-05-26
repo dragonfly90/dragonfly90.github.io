@@ -1,6 +1,5 @@
-# dragonfly90.github.io
 
-1. GMOS(Goals, Operators, Methods, and Selection rules)
+# GMOS(Goals, Operators, Methods, and Selection rules)
 advantages: 
 With a careful investigation into all of the detailed steps necessary for a user to successfully interact with
 an interface,the time measurement of how long it will take a user to interact with that interface is a simple
@@ -10,12 +9,21 @@ All of the GOMS techniques provide valuable information, but they all also have 
 None of the techniques address user unpredictability - such as user behaviour being affected by fatigue, 
 social surroundings, or organizational factors. 
 
-2.Fitts's law (often cited as Fitts' law) 
+#CMN-GOMS
+Eyes/ears perceive information
+Information enters perceptual processor
+Information enters the visual/auditory image store
+Information is stored in the working memory and long term memory
+Information is analyzed in the cognitive processor and a desired reaction (motor function) is chosen
+Desired motor function is activated in the motor processor
+Desired motor function is applied by user’s body
+
+# Fitts's law (often cited as Fitts' law) 
 a descriptive model of human movement primarily used in human–computer interaction and ergonomics. This scientific 
 law predicts that the time required to rapidly move to a target area is a function of the ratio between the distance 
 to the target and the width of the target.
 
-3.cognitive model in chi 2014, 2015
+# cognitive model in chi 2014, 2015
 http://chi2014.acm.org/program/best-of-chi
 
 http://chi2015.acm.org/program/best-of-chi/?id=pn1991#best-papers
@@ -25,7 +33,7 @@ of task performance from an easy-to-use GOMS-based tool.
 
 Understanding Multitasking Through Parallelized Strategy Exploration and Individualized Cognitive Modeling
 
-4. cogtool
+# cogtool
 Telephone Number Look-Up Task
 This example compares two interfaces (a dialog box and a pop-up menu) on two tasks (look up one telephone number and look up two telephone numbers). The interfaces were first described by Nielsen and Phillips at CHI 1993 (N&P93) and have been modeled by using several types of KLM modeling frameworks. The original KLM was used in N&P93 and in John 1994; ACT-Simple was used by Salvucci and Lee a few years later, and it was the first demonstration of CogTool at CHI 2004.
 
@@ -37,3 +45,12 @@ for today's users (4-6 seconds for N&P's users in the early 1990s when mice and 
 which leave little room for the approximation of thinking time inherent in the KLM model that underlies CogTool's 
 predictions. Still, the models predict, correctly, that the dialog box interface will take 4-5 times as long as
 the pop-up menu interface.
+
+
+# model-based evaluation of expert cell phone menu interaction
+
+eleven productions: find-top-item, find-next-item, attend-item, encode-item, respond-select-target...
+
+#Tutorial
+
+One simple addition example, two visual tasks, principle of activation of chunck, selecting production based on utility,procedural learning, procedural partial learning
