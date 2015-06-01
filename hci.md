@@ -76,6 +76,8 @@ http://www.zhihu.com/question/29875948
 
 http://www.w3ctech.com/topic/107
 
+Test of front-end
 http://hikejun.com/blog/
 
+The trend of front-end developing
 http://jjperezaguinaga.com/2014/03/19/why-cant-we-find-front-end-developers/
