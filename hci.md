@@ -60,3 +60,10 @@ That is setting three parameters: :esc, :lf, and :trace-detail. The first two ar
 #Lisp
 
 common lisp
+
+
+#Graph Design for the Eye and Mind( by Stephen M. Kosslyn)
+
+#Front-end Developer
+
+http://www.w3ctech.com/topic/107
