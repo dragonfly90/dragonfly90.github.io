@@ -63,7 +63,15 @@ common lisp
 
 
 #Graph Design for the Eye and Mind( by Stephen M. Kosslyn)
+Graph:
+1.Use a graph to illustrate relative amounts
+2.Specify the subject
+3.Present the data needed for a specific purpose
+4.Use concepts and display formats that are familiar to the audience
+5.Selecting the Right Format for the Job
+
 
 #Front-end Developer
+http://www.zhihu.com/question/29875948
 
 http://www.w3ctech.com/topic/107
