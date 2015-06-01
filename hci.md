@@ -58,3 +58,5 @@ One simple addition example, two visual tasks, principle of activation of chunck
 That is setting three parameters: :esc, :lf, and :trace-detail. The first two are specifying that retrieval requests will always take 50ms, but other than that are beyond the scope of this unit and will be discussed fully in later units. The third parameter being set, :trace-detail, controls how much information is shown in the trace when a model runs.
 
 #Lisp
+
+common lisp
