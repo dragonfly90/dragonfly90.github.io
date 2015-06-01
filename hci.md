@@ -81,3 +81,6 @@ http://hikejun.com/blog/
 
 The trend of front-end developing
 http://jjperezaguinaga.com/2014/03/19/why-cant-we-find-front-end-developers/
+
+Alloy team
+http://www.alloyteam.com
