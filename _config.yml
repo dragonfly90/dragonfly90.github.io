@@ -1,0 +1,24 @@
+# Variables set by GitHub
+safe: true
+lsi: false
+pygments: true
+source: .
+
+markdown: redcarpet
+
+# Use nice sensible URLs like:
+#
+#    /nice/sensible/url
+#
+# Not:
+#
+#    /15/05/12/nasty/url
+#
+permalink: /posts/:title
+
+# Enable HTTP redirects
+gems:
+  - jekyll-redirect-from
+
+# Ignore patterns
+exclude: [README.md, scripts/, old-site/]
