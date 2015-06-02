@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="en">
+
+  <!--
+             ____________________________________________________
+            /                                                    \
+           |    _____________________________________________     |
+           |   |                                             |    |
+           |   |                                             |    |
+           |   |                                             |    |
+           |   |                                             |    |
+           |   |  Hey you! Yes, you! Isn't this some beaut-  |    |
+           |   |  ifully crafted HTML? Drop me an email if   |    |
+           |   |  you want me to write for you:              |    |
+           |   |                                             |    |
+           |   |          chrisc.101 at gmail.com            |    |
+           |   |                                             |    |
+           |   |                                             |    |
+           |   |                                             |    |
+           |   |                                             |    |
+           |   |_____________________________________________|    |
+           |                                                      |
+            \_____________________________________________________/
+                   \_______________________________________/
+                _______________________________________________
+             _-'    .-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.  --- `-_
+          _-'.-.-. .---.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.--.  .-.-.`-_
+       _-'.-.-.-. .---.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-`__`. .-.-.-.`-_
+    _-'.-.-.-.-. .-----.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-----. .-.-.-.-.`-_
+ _-'.-.-.-.-.-. .---.-. .-----------------------------. .-.---. .---.-.-.-.`-_
+:-----------------------------------------------------------------------------:
+`---._.-----------------------------------------------------------------._.---'
+
+  -->
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    
+    
+    <title>Quick HDD Health Check | Chris Cummins</title>
+    
+    <meta name="description" content="The personal website of software developer and geek Chris Cummins.">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="msapplication-tooltip" content="Chris Cummins personal website">
+
+    <link href="http://fonts.googleapis.com/css?family=Montserrat:700,400" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="/css/styles.css">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+
+    <script type="text/javascript">var _gaq=_gaq||[];_gaq.push(["_setAccount","UA-40829804-1"]);_gaq.push(["_trackPageview"]);(function(){var b=document.createElement("script");b.type="text/javascript";b.async=true;b.src=("https:"==document.location.protocol?"https://ssl":"http://www")+".google-analytics.com/ga.js";var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(b,a)})();</script>
+
+  </head>
+
+  <body>
+
+    <div class="wrapper">
+
+      
+      <header>
+        <center>
+          <h1>
+            <a href="/">CHRIS<b>CUMMINS</b></a>
+            <ul>
+              <li><a href="/cv/"><b>C</b>urriculum <b>V</b>itae</a></li>
+              <li><a href="/projects/">Open Source Software</a></li>
+            </ul>
+          </h1>
+          <div class="img-frame"><img src="/images/selfie.jpg" width="180" height="180"/></div>
+          
+          <ul>
+            <li><a href="https://github.com/ChrisCummins" target="_blank">GitHub<small>Code goes here</small></a></li>
+            <li><a href="http://www.linkedin.com/profile/view?id=195091553" target="_blank">Linked In<small>All professional like</small></a></li>
+            <li><a href="http://www.facebook.com/cecummins" target="_blank">Facebook<small>All unprofessional like</small></a></li>
+            <li><a href="http://www.youtube.com/user/ChrisCummins" target="_blank">YouTube<small>Hitting drums with sticks</small></a></li>
+            <li><a href="http://soundcloud.com/peakstudio" target="_blank">SoundCloud<small>Making noises with other people</small></a></li>
+          </ul>
+        </center>
+      </header>
+
+      <section>
+        
+        
+          <div id="post">
+            <h1 class="title">Quick HDD Health Check</h1>
+            <h1 class="title" id="hidden-title"></h1>
+        
+
+        <p>Recently I have had to deal with two hardware disk failures in quick
+succession, which has led to two changes:</p>
+
+<ol>
+<li>A much increased pace of development on
+<a href="/posts/emu-by-example/">emu</a> (more on that soon!).</li>
+<li>Taking a more programmatic and astute approach to keeping on eye on
+system health.</li>
+</ol>
+
+<p>In order to facilitate the second point, I adapted a simple one-liner
+from this
+<a href="http://www.kossboss.com/linux---how-to-clone-a-disk-with-ddrescue---dnu-ddrescue-also-known-as-gddrescue---the-better-ddrescue-tool">disk cloning with ddrescue</a>
+tutorial in order to provide a quick and simple overview of the health of hard drives:</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">for i in $(ls /dev/sd[a-z]); do echo &quot;=== $i ===&quot;; \
+sudo smartctl -a $i | egrep --color=never -i \
+&quot;reallocated_sector|ata error|serial|model|user capacity&quot;; \
+sudo smartctl -H $i &amp;&gt;/dev/null || sudo smartctl -H $i; echo; done;
+</code></pre></div>
+<p>Example output for a system with 5 drives, the fourth of which
+(<code>/dev/sdd</code>) is failing:</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">=== /dev/sda ===
+Device Model:     WDC WD40EFRX-68WT0N0
+Serial Number:    WD-XXXXXXXXXXXX
+User Capacity:    4,000,787,030,016 bytes [4.00 TB]
+  5 Reallocated_Sector_Ct   0x0033   200   200   140    Pre-fail  Always       -       0
+
+=== /dev/sdb ===
+Model Family:     Western Digital Caviar Green (AF)
+Device Model:     WDC WD20EARS-00MVWB0
+Serial Number:    WD-XXXXXXXXXXXX
+User Capacity:    2,000,398,934,016 bytes [2.00 TB]
+  5 Reallocated_Sector_Ct   0x0033   200   200   140    Pre-fail  Always       -       0
+
+=== /dev/sdc ===
+Model Family:     Western Digital Red (AF)
+Device Model:     WDC WD20EFRX-68EUZN0
+Serial Number:    WD-XXXXXXXXXXXX
+User Capacity:    2,000,398,934,016 bytes [2.00 TB]
+  5 Reallocated_Sector_Ct   0x0033   200   200   140    Pre-fail  Always       -       0
+
+=== /dev/sdd ===
+Model Family:     Western Digital Caviar Green (AF)
+Device Model:     WDC WD20EARS-00MVWB0
+Serial Number:    WD-XXXXXXXXXXXX
+User Capacity:    2,000,398,934,016 bytes [2.00 TB]
+  5 Reallocated_Sector_Ct   0x0033   200   200   140    Pre-fail  Always       -       0
+smartctl 6.2 2013-07-26 r3841 [x86_64-linux-3.13.0-29-generic] (local build)
+Copyright (C) 2002-13, Bruce Allen, Christian Franke, www.smartmontools.org
+
+=== START OF READ SMART DATA SECTION ===
+SMART overall-health self-assessment test result: FAILED!
+Drive failure expected in less than 24 hours. SAVE ALL DATA.
+Failed Attributes:
+ID# ATTRIBUTE_NAME          FLAG     VALUE WORST THRESH TYPE      UPDATED  WHEN_FAILED RAW_VALUE
+  1 Raw_Read_Error_Rate     0x002f   020   020   051    Pre-fail  Always   FAILING_NOW 89263
+
+
+=== /dev/sde ===
+Model Family:     HP 250GB SATA disk VB0250EAVER
+Device Model:     VB0250EAVER
+Serial Number:    XXXXXXXX
+User Capacity:    250,059,350,016 bytes [250 GB]
+  5 Reallocated_Sector_Ct   0x0033   100   100   036    Pre-fail  Always       -       0
+</code></pre></div>
+<p>And here is the command in expanded form. Note that it runs the SMART
+health check, and will show the output is the test fails.</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">for i in $(ls /dev/sd[a-z]); do
+    echo &quot;=== $i ===&quot;
+    sudo smartctl -a $i | egrep --color=never \
+        -i &quot;reallocated_sector|ata error|serial|model|user capacity&quot;
+    sudo smartctl -H $i &amp;&gt;/dev/null || sudo smartctl -H $i
+    echo
+done
+</code></pre></div>
+<p>Note also that this depends on the <code>smartctl</code> binary, which is
+probably not included in most default distributions. In Debian, you
+need to apt-get the <code>smartmontools</code> package:</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">sudo apt-get install smartmontools
+</code></pre></div>
+
+        
+            <div class="nav">
+              <hr>
+
+              <div class="next">
+                
+                <a href="/posts/emu-by-example" title="Read the previous post">Newer post</a>
+                
+              </div>
+
+              <div class="previous">
+                
+                <a href="/posts/quick-hdd-health-check" title="Read the previous post">Older post</a>
+                
+              </div>
+
+              
+              <div class="date">
+                15 Aug 2014
+              </div>
+              
+          </div>
+        
+      </section>
+      <footer>
+        <center>
+          <p>
+            <small>
+              <a href="/posts/about">&copy; Chris Cummins 2015</a>
+            </small>
+          </p>
+        </center>
+      </footer>
+    </div>
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+    <script src="/js/site.min.js"></script>
+  </body>
+</html>

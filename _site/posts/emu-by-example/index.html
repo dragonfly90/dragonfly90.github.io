@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="en">
+
+  <!--
+             ____________________________________________________
+            /                                                    \
+           |    _____________________________________________     |
+           |   |                                             |    |
+           |   |                                             |    |
+           |   |                                             |    |
+           |   |                                             |    |
+           |   |  Hey you! Yes, you! Isn't this some beaut-  |    |
+           |   |  ifully crafted HTML? Drop me an email if   |    |
+           |   |  you want me to write for you:              |    |
+           |   |                                             |    |
+           |   |          chrisc.101 at gmail.com            |    |
+           |   |                                             |    |
+           |   |                                             |    |
+           |   |                                             |    |
+           |   |                                             |    |
+           |   |_____________________________________________|    |
+           |                                                      |
+            \_____________________________________________________/
+                   \_______________________________________/
+                _______________________________________________
+             _-'    .-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.  --- `-_
+          _-'.-.-. .---.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.--.  .-.-.`-_
+       _-'.-.-.-. .---.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-`__`. .-.-.-.`-_
+    _-'.-.-.-.-. .-----.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-----. .-.-.-.-.`-_
+ _-'.-.-.-.-.-. .---.-. .-----------------------------. .-.---. .---.-.-.-.`-_
+:-----------------------------------------------------------------------------:
+`---._.-----------------------------------------------------------------._.---'
+
+  -->
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    
+    
+    <title>Emu by example | Chris Cummins</title>
+    
+    <meta name="description" content="The personal website of software developer and geek Chris Cummins.">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="msapplication-tooltip" content="Chris Cummins personal website">
+
+    <link href="http://fonts.googleapis.com/css?family=Montserrat:700,400" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="/css/styles.css">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+
+    <script type="text/javascript">var _gaq=_gaq||[];_gaq.push(["_setAccount","UA-40829804-1"]);_gaq.push(["_trackPageview"]);(function(){var b=document.createElement("script");b.type="text/javascript";b.async=true;b.src=("https:"==document.location.protocol?"https://ssl":"http://www")+".google-analytics.com/ga.js";var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(b,a)})();</script>
+
+  </head>
+
+  <body>
+
+    <div class="wrapper">
+
+      
+      <header>
+        <center>
+          <h1>
+            <a href="/">CHRIS<b>CUMMINS</b></a>
+            <ul>
+              <li><a href="/cv/"><b>C</b>urriculum <b>V</b>itae</a></li>
+              <li><a href="/projects/">Open Source Software</a></li>
+            </ul>
+          </h1>
+          <div class="img-frame"><img src="/images/selfie.jpg" width="180" height="180"/></div>
+          
+          <ul>
+            <li><a href="https://github.com/ChrisCummins" target="_blank">GitHub<small>Code goes here</small></a></li>
+            <li><a href="http://www.linkedin.com/profile/view?id=195091553" target="_blank">Linked In<small>All professional like</small></a></li>
+            <li><a href="http://www.facebook.com/cecummins" target="_blank">Facebook<small>All unprofessional like</small></a></li>
+            <li><a href="http://www.youtube.com/user/ChrisCummins" target="_blank">YouTube<small>Hitting drums with sticks</small></a></li>
+            <li><a href="http://soundcloud.com/peakstudio" target="_blank">SoundCloud<small>Making noises with other people</small></a></li>
+          </ul>
+        </center>
+      </header>
+
+      <section>
+        
+        
+          <div id="post">
+            <h1 class="title">Emu by example</h1>
+            <h1 class="title" id="hidden-title"></h1>
+        
+
+        <p>This post introduces emu, a pet project which I have been developing
+on a casual stop-start basis for the past two years. Emu is a fast,
+incremental, rotating snapshot backup program with checksum
+verification and branch support, strongly inspired by
+<a href="http://git-scm.com/">git</a> and Apple&#39;s
+<a href="http://support.apple.com/kb/HT1427">Time Machine</a>.</p>
+
+<p>It was born out of a desire to be able to conveniently and reliably
+backup a huge amount of data to multiple locations without having to
+resort to extensive and error prone bash scripting, and which didn&#39;t
+bundle up data in arbitrary binary blobs. I wanted a system which was
+simple, transparent, and easy to use. So I made one.</p>
+
+<p>The following blog posts contain a quick and hands-on introduction to
+the seven primary functions of emu, intended to get people up and
+running with it quickly. The concepts are simple and the commands will
+seem familiar to anyone with experience of git. Note that development
+is in alpha stage and things change quickly. This blog pertains to the
+current stable release,
+<a href="https://github.com/ChrisCummins/emu/releases/tag/0.1.49">0.1.49</a>. Be
+sure to check out the project&#39;s
+<a href="https://github.com/ChrisCummins/emu">GitHub page</a> for the latest
+updates.</p>
+
+<h4>Table of Contents</h4>
+
+<ul>
+<li><a href="/posts/emu-by-example-1/">Part 1: Sinks and sources</a></li>
+<li><a href="/posts/emu-by-example-2/">Part 2: Push and log</a></li>
+<li><a href="/posts/emu-by-example-3/">Part 3: Verify and checkout</a></li>
+<li><a href="/posts/emu-by-example-4/">Part 4: Squash and prune</a></li>
+<li>Part 5: Clean and customisation (work in progress)</li>
+</ul>
+
+
+        
+            <div class="nav">
+              <hr>
+
+              <div class="next">
+                
+                <a href="/posts/emu-by-example-1" title="Read the previous post">Newer post</a>
+                
+              </div>
+
+              <div class="previous">
+                
+                <a href="/posts/emu-by-example" title="Read the previous post">Older post</a>
+                
+              </div>
+
+              
+              <div class="date">
+                27 Aug 2014
+              </div>
+              
+          </div>
+        
+      </section>
+      <footer>
+        <center>
+          <p>
+            <small>
+              <a href="/posts/about">&copy; Chris Cummins 2015</a>
+            </small>
+          </p>
+        </center>
+      </footer>
+    </div>
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+    <script src="/js/site.min.js"></script>
+  </body>
+</html>

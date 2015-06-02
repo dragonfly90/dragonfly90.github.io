@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="en">
+
+  <!--
+             ____________________________________________________
+            /                                                    \
+           |    _____________________________________________     |
+           |   |                                             |    |
+           |   |                                             |    |
+           |   |                                             |    |
+           |   |                                             |    |
+           |   |  Hey you! Yes, you! Isn't this some beaut-  |    |
+           |   |  ifully crafted HTML? Drop me an email if   |    |
+           |   |  you want me to write for you:              |    |
+           |   |                                             |    |
+           |   |          chrisc.101 at gmail.com            |    |
+           |   |                                             |    |
+           |   |                                             |    |
+           |   |                                             |    |
+           |   |                                             |    |
+           |   |_____________________________________________|    |
+           |                                                      |
+            \_____________________________________________________/
+                   \_______________________________________/
+                _______________________________________________
+             _-'    .-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.  --- `-_
+          _-'.-.-. .---.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.--.  .-.-.`-_
+       _-'.-.-.-. .---.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-`__`. .-.-.-.`-_
+    _-'.-.-.-.-. .-----.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-----. .-.-.-.-.`-_
+ _-'.-.-.-.-.-. .---.-. .-----------------------------. .-.---. .---.-.-.-.`-_
+:-----------------------------------------------------------------------------:
+`---._.-----------------------------------------------------------------._.---'
+
+  -->
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    
+    
+    <title>On writing crap code, quickly | Chris Cummins</title>
+    
+    <meta name="description" content="The personal website of software developer and geek Chris Cummins.">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="msapplication-tooltip" content="Chris Cummins personal website">
+
+    <link href="http://fonts.googleapis.com/css?family=Montserrat:700,400" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="/css/styles.css">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+
+    <script type="text/javascript">var _gaq=_gaq||[];_gaq.push(["_setAccount","UA-40829804-1"]);_gaq.push(["_trackPageview"]);(function(){var b=document.createElement("script");b.type="text/javascript";b.async=true;b.src=("https:"==document.location.protocol?"https://ssl":"http://www")+".google-analytics.com/ga.js";var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(b,a)})();</script>
+
+  </head>
+
+  <body>
+
+    <div class="wrapper">
+
+      
+      <header>
+        <center>
+          <h1>
+            <a href="/">CHRIS<b>CUMMINS</b></a>
+            <ul>
+              <li><a href="/cv/"><b>C</b>urriculum <b>V</b>itae</a></li>
+              <li><a href="/projects/">Open Source Software</a></li>
+            </ul>
+          </h1>
+          <div class="img-frame"><img src="/images/selfie.jpg" width="180" height="180"/></div>
+          
+          <ul>
+            <li><a href="https://github.com/ChrisCummins" target="_blank">GitHub<small>Code goes here</small></a></li>
+            <li><a href="http://www.linkedin.com/profile/view?id=195091553" target="_blank">Linked In<small>All professional like</small></a></li>
+            <li><a href="http://www.facebook.com/cecummins" target="_blank">Facebook<small>All unprofessional like</small></a></li>
+            <li><a href="http://www.youtube.com/user/ChrisCummins" target="_blank">YouTube<small>Hitting drums with sticks</small></a></li>
+            <li><a href="http://soundcloud.com/peakstudio" target="_blank">SoundCloud<small>Making noises with other people</small></a></li>
+          </ul>
+        </center>
+      </header>
+
+      <section>
+        
+        
+          <div id="post">
+            <h1 class="title">On writing crap code, quickly</h1>
+            <h1 class="title" id="hidden-title"></h1>
+        
+
+        <p>I was recently given a programming aptitude test as part of an
+interview process. The task was to write a <em>reverse</em> function for a
+singly linked list. For those unfamiliar, it should look something
+like this:</p>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">reverse</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">head</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">current</span> <span class="o">=</span> <span class="nx">head</span><span class="p">,</span> <span class="nx">next</span><span class="p">,</span> <span class="nx">previous</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
+
+  <span class="k">while</span> <span class="p">(</span><span class="nx">current</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">next</span> <span class="o">=</span> <span class="nx">current</span><span class="p">.</span><span class="nx">next</span><span class="p">;</span>
+    <span class="nx">current</span><span class="p">.</span><span class="nx">next</span> <span class="o">=</span> <span class="nx">previous</span><span class="p">;</span>
+    <span class="nx">previous</span> <span class="o">=</span> <span class="nx">current</span><span class="p">;</span>
+    <span class="nx">current</span> <span class="o">=</span> <span class="nx">next</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="k">return</span> <span class="nx">previous</span><span class="p">;</span>
+<span class="p">};</span>
+</code></pre></div>
+<p>Simple enough. It iterates over the list from front to back, keeping
+track of the current node, the node which comes after it, and the node
+which came before it. For each node, it sets the next node to be the
+previous node in the list. When the loop terminates, the list has been
+reversed.</p>
+
+<p>When posed this problem, I knew I was under the scrutiny of potential
+employers, and this anxiety caused my logical mind to quickly fart its
+way through a rapid succession of doubts:</p>
+
+<blockquote>
+<p>&quot;OK. This is a simple problem, no sweat.&quot;<br/>
+&quot;Wait... how do I do it?&quot;<br/>
+&quot;Ah <em>shit</em>, my CS theory is rusty!&quot;<br/>
+&quot;No time for a cheeky stack overflow browse, right?&quot;<br/>
+&quot;OK enough stalling, let&#39;s start typing!&quot;</p>
+</blockquote>
+
+<p>And this was the solution I came up with:</p>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">reverse</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">node</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">n</span> <span class="o">=</span> <span class="nx">node</span><span class="p">,</span> <span class="nx">arr</span> <span class="o">=</span> <span class="p">[];</span>
+
+  <span class="k">while</span> <span class="p">(</span><span class="nx">n</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">n</span><span class="p">.</span><span class="nx">next</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">arr</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">n</span><span class="p">);</span>
+      <span class="nx">n</span> <span class="o">=</span> <span class="nx">n</span><span class="p">.</span><span class="nx">next</span><span class="p">;</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+      <span class="nx">arr</span> <span class="o">=</span> <span class="nx">arr</span><span class="p">.</span><span class="nx">reverse</span><span class="p">();</span>
+      <span class="nx">n</span><span class="p">.</span><span class="nx">next</span> <span class="o">=</span> <span class="nx">arr</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
+
+      <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">arr</span><span class="p">.</span><span class="nx">length</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kd">var</span> <span class="nx">node</span> <span class="o">=</span> <span class="nx">arr</span><span class="p">[</span><span class="nx">i</span><span class="p">];</span>
+        <span class="kd">var</span> <span class="nx">next</span> <span class="o">=</span> <span class="nx">arr</span><span class="p">[</span><span class="nx">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">];</span>
+
+        <span class="nx">node</span><span class="p">.</span><span class="nx">next</span> <span class="o">=</span> <span class="nx">next</span><span class="p">;</span>
+      <span class="p">}</span>
+
+      <span class="nx">arr</span><span class="p">[</span><span class="nx">arr</span><span class="p">.</span><span class="nx">length</span> <span class="o">-</span> <span class="mi">1</span><span class="p">].</span><span class="nx">next</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
+      <span class="k">return</span> <span class="nx">n</span><span class="p">;</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">};</span>
+</code></pre></div>
+<p>So, by ways of a quick analysis of the solution: it&#39;s crap. Here&#39;s
+three of the most significant reasons:</p>
+
+<ol>
+<li>It&#39;s harder to read, longer, and contains three levels of nested
+logic, as opposed to the reference solution&#39;s 1.</li>
+<li>It iterates over every element, and then iterates over every
+element except the last <em>again</em>. So while it is still <em>O(n)</em> in
+time complexity, it&#39;s <em>2n-1</em> rather than the <em>n</em> of the reference
+solution, so really it&#39;s <strong>twice as slow</strong>.</li>
+<li>It uses an auxiliary data structure (an array) to store <em>n-1</em>
+nodes, so it&#39;s <em>O(n)</em> in space complexity, instead of the <em>O(1)</em> of
+the reference solution. This is the real red flag: if an operation
+on a data structure requires you to create an entirely new data
+structure, it&#39;s <strong>probably not a well thought-out operation</strong>.</li>
+</ol>
+
+<p>And &quot;well thought out&quot; it was definitely not. I took at most a minute
+or two to come up with the solution, and in retrospect it is clear to
+see that by trying to ensure that I came up with something as fast as
+possible, I lost sight of whether the solution I was working on was
+<em>good</em> or not.</p>
+
+<h5>What can I learn from this?</h5>
+
+<p>The reason I found this experience interesting and worth reflecting
+upon was that it seemed to reflect a mistake that I&#39;ll often find
+myself repeating: I&#39;ll start writing before I have a good idea of what
+it is I should be writing. In software, this leads to spaghetti code
+and multiple re-writes. As the ever excellent and bastion of cynicism
+<a href="http://xkcd.com/844/">xkcd</a> explains:</p>
+
+<p><img src="http://imgs.xkcd.com/comics/good_code.png" alt="XKCD"></p>
+
+<p>It seems that all of this ultimately boils down to a rephrasing of the
+old adage:
+<em><a href="http://c2.com/cgi/wiki?MakeItWorkMakeItRightMakeItFast">make it work, make it right, make it fast</a></em>.</p>
+
+
+        
+            <div class="nav">
+              <hr>
+
+              <div class="next">
+                
+                <a href="/posts/crap-posts-quickly" title="Read the previous post">Newer post</a>
+                
+              </div>
+
+              <div class="previous">
+                
+                <a href="/posts/crap-code-quickly" title="Read the previous post">Older post</a>
+                
+              </div>
+
+              
+              <div class="date">
+                03 May 2014
+              </div>
+              
+          </div>
+        
+      </section>
+      <footer>
+        <center>
+          <p>
+            <small>
+              <a href="/posts/about">&copy; Chris Cummins 2015</a>
+            </small>
+          </p>
+        </center>
+      </footer>
+    </div>
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+    <script src="/js/site.min.js"></script>
+  </body>
+</html>

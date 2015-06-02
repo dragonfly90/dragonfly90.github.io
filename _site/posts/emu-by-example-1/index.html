@@ -1,0 +1,258 @@
+<!doctype html>
+<html lang="en">
+
+  <!--
+             ____________________________________________________
+            /                                                    \
+           |    _____________________________________________     |
+           |   |                                             |    |
+           |   |                                             |    |
+           |   |                                             |    |
+           |   |                                             |    |
+           |   |  Hey you! Yes, you! Isn't this some beaut-  |    |
+           |   |  ifully crafted HTML? Drop me an email if   |    |
+           |   |  you want me to write for you:              |    |
+           |   |                                             |    |
+           |   |          chrisc.101 at gmail.com            |    |
+           |   |                                             |    |
+           |   |                                             |    |
+           |   |                                             |    |
+           |   |                                             |    |
+           |   |_____________________________________________|    |
+           |                                                      |
+            \_____________________________________________________/
+                   \_______________________________________/
+                _______________________________________________
+             _-'    .-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.  --- `-_
+          _-'.-.-. .---.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.--.  .-.-.`-_
+       _-'.-.-.-. .---.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-`__`. .-.-.-.`-_
+    _-'.-.-.-.-. .-----.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-----. .-.-.-.-.`-_
+ _-'.-.-.-.-.-. .---.-. .-----------------------------. .-.---. .---.-.-.-.`-_
+:-----------------------------------------------------------------------------:
+`---._.-----------------------------------------------------------------._.---'
+
+  -->
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    
+    
+    <title>Emu by example, part 1 | Chris Cummins</title>
+    
+    <meta name="description" content="The personal website of software developer and geek Chris Cummins.">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="msapplication-tooltip" content="Chris Cummins personal website">
+
+    <link href="http://fonts.googleapis.com/css?family=Montserrat:700,400" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="/css/styles.css">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+
+    <script type="text/javascript">var _gaq=_gaq||[];_gaq.push(["_setAccount","UA-40829804-1"]);_gaq.push(["_trackPageview"]);(function(){var b=document.createElement("script");b.type="text/javascript";b.async=true;b.src=("https:"==document.location.protocol?"https://ssl":"http://www")+".google-analytics.com/ga.js";var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(b,a)})();</script>
+
+  </head>
+
+  <body>
+
+    <div class="wrapper">
+
+      
+      <header>
+        <center>
+          <h1>
+            <a href="/">CHRIS<b>CUMMINS</b></a>
+            <ul>
+              <li><a href="/cv/"><b>C</b>urriculum <b>V</b>itae</a></li>
+              <li><a href="/projects/">Open Source Software</a></li>
+            </ul>
+          </h1>
+          <div class="img-frame"><img src="/images/selfie.jpg" width="180" height="180"/></div>
+          
+          <ul>
+            <li><a href="https://github.com/ChrisCummins" target="_blank">GitHub<small>Code goes here</small></a></li>
+            <li><a href="http://www.linkedin.com/profile/view?id=195091553" target="_blank">Linked In<small>All professional like</small></a></li>
+            <li><a href="http://www.facebook.com/cecummins" target="_blank">Facebook<small>All unprofessional like</small></a></li>
+            <li><a href="http://www.youtube.com/user/ChrisCummins" target="_blank">YouTube<small>Hitting drums with sticks</small></a></li>
+            <li><a href="http://soundcloud.com/peakstudio" target="_blank">SoundCloud<small>Making noises with other people</small></a></li>
+          </ul>
+        </center>
+      </header>
+
+      <section>
+        
+        
+          <div id="post">
+            <h1 class="title">Emu by example, part 1</h1>
+            <h1 class="title" id="hidden-title"></h1>
+        
+
+        <h4>Part 1: Sinks and sources</h4>
+
+<p>Before we dive into the tutorial, we must establish some
+terminology. There are three main concepts in emu: sources, sinks, and
+snapshots.</p>
+
+<p>A <strong>source</strong> is a source of data which you wish to backup, e.g. a
+documents folder, or media library.</p>
+
+<p>Each source can have one or more <strong>sinks</strong>, which are the backup
+destinations, e.g. a separate partition, or a network file share.</p>
+
+<p>A <strong>snapshot</strong> is the fundamental unit of backups: an exact copy of a
+source at a single moment in time. Each sink may have multiple
+snapshots. Emu is a rotating snapshot program, that is, as a sink
+collects more and more snapshots, the newer snapshots displace the
+older ones.</p>
+
+<p>Since emu is modelled closely on git, the three emu components can be
+analogised to git concepts: <strong>sources</strong> are like git <strong>repositories</strong>,
+<strong>sinks</strong> are like <strong>remotes</strong>, and <strong>snapshots</strong> are like
+<strong>commits</strong>.</p>
+
+<p>Emu is an incremental snapshot program. As such, each snapshot has a
+parent snapshot, and by iterating along a chain of snapshot parents, a
+branch is created. Branches are similar to those in git, except for
+the main difference that there is only one named branch pointer, which
+always points to the current HEAD. So while it is possible to create
+branch histories of arbitrary complexity, you will have to track the
+IDs of each branch head yourself, instead of having named branches
+like the familiar &quot;master&quot;. Additionally, snapshots may only have one
+parent, so branches cannot be merged. These restrictions are the
+result of intentional decisions to emphasise emu&#39;s primary purpose of
+creating <em>backups</em> - it is not version control.</p>
+
+<h6>init</h6>
+
+<p>OK, so enough with the theory, let&#39;s crack open the terminal! First,
+lets create a testing area, which we&#39;ll use as a <em>source</em>.</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">$ mkdir /tmp/source
+$ cd !$
+</code></pre></div>
+<p>The first emu command we&#39;ll come across is <code>init</code>.</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">$ emu init
+Initialised source at &#39;/tmp/source&#39;
+</code></pre></div>
+<p>It&#39;s worth point out here that all emu commands are to be executed
+from within the <em>source</em> directory. If we want to execute an emu
+command from outside of a source, we can specify the source path using
+the <code>-S</code> flag:</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">$ emu init -S /tmp/source
+Initialised source at &#39;/tmp/source&#39;
+</code></pre></div>
+<p>In both cases, the end result is the same. Emu creates a directory at
+the root of the source called <code>.emu</code>, and populates it with all the
+files it needs to turn the directory into an emu source. Under normal
+circumstances, you will never have to poke around inside the <code>.emu</code>
+directory, but for the sake of this tutorial let&#39;s take a look and see
+what&#39;s happening under the hood:</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">$ ls -l /tmp/source/.emu
+total 4
+-rw-r--r-- 1 chris chris    0 Sep  4 14:18 config
+-rw-r--r-- 1 chris chris 1364 Sep  4 14:18 excludes
+drwxr-xr-x 4 chris chris   80 Jul  5 12:56 hooks
+drwx------ 2 chris chris   40 Sep  4 23:43 sinks
+</code></pre></div>
+<p>We can see that there is a configuration file, an excludes file, and a
+couple of directories. We will cover the hooks directory in a later
+tutorial, and the sinks directory is currently empty. This is for the
+obvious reason that we have yet to create a sink, so let&#39;s do that
+now!</p>
+
+<h6>sink</h6>
+
+<p>As mentioned earlier, sinks behave very similarly to git&#39;s remotes,
+and the <code>sink</code> command uses the same syntax as <code>git remote</code>. Sources
+can support multiple sinks, so they are named. Let&#39;s create a test
+sink at <code>/tmp/sink</code>, called <code>origin</code>:</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">$ emu sink add origin ../sink
+Initialised sink origin at &#39;/tmp/sink&#39;
+</code></pre></div>
+<p>Again, emu creates a number of files within a <code>.emu</code> directory which
+enables it to behave like an emu sink. Let&#39;s take a look:</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">$ ls -l ../sink/.emu
+total 4
+-rw-r--r-- 1 chris chris 48 Sep  4 14:18 config
+-rw-rw-r-- 1 chris chris  0 Sep  4 23:47 HEAD
+drwx------ 2 chris chris 40 Sep  4 23:47 nodes
+drwx------ 2 chris chris 40 Sep  4 23:47 trees
+</code></pre></div>
+<p>This time there&#39;s even less to see. There&#39;s another configuration
+file, two empty directories, and an empty file called <code>HEAD</code>. If we
+were to have a look inside our source&#39;s <code>.emu</code> directory, we would now
+see that there is a single within <code>.emu/sinks</code> which has the name of
+our sink. If we read it, we see that it simple contains a path which
+points to the sink we just created:</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">$ cat .emu/sinks/origin
+/tmp/stack
+</code></pre></div>
+<p>We can get emu to list a source&#39;s sinks by invoking the <code>sink</code> command
+without any arguments. Additionally we can use the verbose flag <code>-v</code>
+to gather more information:</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">$ emu sink -v
+origin
+Location:        /tmp/sink
+No of snapshots: 0
+Max snapshots:   10
+Head:
+Device:          tmpfs
+</code></pre></div>
+<p>While incredibly simplistic, this tutorial has hopefully demonstrated
+a key strength of emu: <strong>transparency</strong>. Pointers are just files, data
+is stored in plain text, and things aren&#39;t wrapped up in unnecessary
+complexity. In later tutorials we will cover some of the advanced
+features of emu, and in all cases you will see this simplicity applied
+throughout the entirety of emu. It is a fundamental part of its
+design, and its greatest strength.</p>
+
+<p>OK, so this was a bit of a slow start to our tutorial, but it
+introduced the fundamental concepts of <strong>sources</strong>, <strong>sinks</strong>, and
+<strong>snapshots</strong>, and showed you how to create two of them. Tomorrow we
+will cover snapshot creation! Stay tuned.</p>
+
+<h4><a href="/posts/emu-by-example-2/">Part 2: Push and log</a></h4>
+
+
+        
+            <div class="nav">
+              <hr>
+
+              <div class="next">
+                
+                <a href="/posts/emu-by-example-2" title="Read the previous post">Newer post</a>
+                
+              </div>
+
+              <div class="previous">
+                
+                <a href="/posts/emu-by-example-1" title="Read the previous post">Older post</a>
+                
+              </div>
+
+              
+              <div class="date">
+                03 Sep 2014
+              </div>
+              
+          </div>
+        
+      </section>
+      <footer>
+        <center>
+          <p>
+            <small>
+              <a href="/posts/about">&copy; Chris Cummins 2015</a>
+            </small>
+          </p>
+        </center>
+      </footer>
+    </div>
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+    <script src="/js/site.min.js"></script>
+  </body>
+</html>

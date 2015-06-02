@@ -1,0 +1,300 @@
+<!doctype html>
+<html lang="en">
+
+  <!--
+             ____________________________________________________
+            /                                                    \
+           |    _____________________________________________     |
+           |   |                                             |    |
+           |   |                                             |    |
+           |   |                                             |    |
+           |   |                                             |    |
+           |   |  Hey you! Yes, you! Isn't this some beaut-  |    |
+           |   |  ifully crafted HTML? Drop me an email if   |    |
+           |   |  you want me to write for you:              |    |
+           |   |                                             |    |
+           |   |          chrisc.101 at gmail.com            |    |
+           |   |                                             |    |
+           |   |                                             |    |
+           |   |                                             |    |
+           |   |                                             |    |
+           |   |_____________________________________________|    |
+           |                                                      |
+            \_____________________________________________________/
+                   \_______________________________________/
+                _______________________________________________
+             _-'    .-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.  --- `-_
+          _-'.-.-. .---.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.--.  .-.-.`-_
+       _-'.-.-.-. .---.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-`__`. .-.-.-.`-_
+    _-'.-.-.-.-. .-----.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-----. .-.-.-.-.`-_
+ _-'.-.-.-.-.-. .---.-. .-----------------------------. .-.---. .---.-.-.-.`-_
+:-----------------------------------------------------------------------------:
+`---._.-----------------------------------------------------------------._.---'
+
+  -->
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    
+    
+    <title>Arch Linux in 20 minutes | Chris Cummins</title>
+    
+    <meta name="description" content="The personal website of software developer and geek Chris Cummins.">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="msapplication-tooltip" content="Chris Cummins personal website">
+
+    <link href="http://fonts.googleapis.com/css?family=Montserrat:700,400" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="/css/styles.css">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+
+    <script type="text/javascript">var _gaq=_gaq||[];_gaq.push(["_setAccount","UA-40829804-1"]);_gaq.push(["_trackPageview"]);(function(){var b=document.createElement("script");b.type="text/javascript";b.async=true;b.src=("https:"==document.location.protocol?"https://ssl":"http://www")+".google-analytics.com/ga.js";var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(b,a)})();</script>
+
+  </head>
+
+  <body>
+
+    <div class="wrapper">
+
+      
+      <header>
+        <center>
+          <h1>
+            <a href="/">CHRIS<b>CUMMINS</b></a>
+            <ul>
+              <li><a href="/cv/"><b>C</b>urriculum <b>V</b>itae</a></li>
+              <li><a href="/projects/">Open Source Software</a></li>
+            </ul>
+          </h1>
+          <div class="img-frame"><img src="/images/selfie.jpg" width="180" height="180"/></div>
+          
+          <ul>
+            <li><a href="https://github.com/ChrisCummins" target="_blank">GitHub<small>Code goes here</small></a></li>
+            <li><a href="http://www.linkedin.com/profile/view?id=195091553" target="_blank">Linked In<small>All professional like</small></a></li>
+            <li><a href="http://www.facebook.com/cecummins" target="_blank">Facebook<small>All unprofessional like</small></a></li>
+            <li><a href="http://www.youtube.com/user/ChrisCummins" target="_blank">YouTube<small>Hitting drums with sticks</small></a></li>
+            <li><a href="http://soundcloud.com/peakstudio" target="_blank">SoundCloud<small>Making noises with other people</small></a></li>
+          </ul>
+        </center>
+      </header>
+
+      <section>
+        
+        
+          <div id="post">
+            <h1 class="title">Arch Linux in 20 minutes</h1>
+            <h1 class="title" id="hidden-title"></h1>
+        
+
+        <p>Arch Linux is a <em>fantastic</em> operating system. From bleeding edge
+rolling release packages to a stripped back and industrial feel to the
+design, Arch grants a feeling of empowerment to the user that is
+unmatched by most.</p>
+
+<p>Around two years ago I became somewhat tired of the distro hopping and
+configuration tweaking that had been engaging me previously, and I
+decided to opt for the quieter and a more stable Debian system in
+order to be able to focus more of my attention on software
+development. More recently I decided to give Arch another chance after
+being convinced by a couple of my colleagues, and was delighted to
+find that the distro has come along way from when we last parted, the
+days of System V init and handwritten <code>xorg.conf</code> files.</p>
+
+<p>As always, the installation process for Arch is significantly more
+involved than most (though <a href="https://www.gentoo.org/">not</a>
+<a href="http://www.linuxfromscratch.org/">all</a>) distros, so I decided to
+write up my installation approach for the latest (2014.09.03) release,
+which should result in a complete development machine in around 20
+minutes.</p>
+
+<p><em>Disclaimer:</em> This guide assumes that the reader has a reasonable
+ working knowledge of Linux OSs, and chooses a selection of packages
+ which may not be to everyone&#39;s taste. The authoritative source of
+ installation instructions is the
+ <a href="https://wiki.archlinux.org/index.php/beginners&#x27;_guide">Arch wiki</a>. Assumed
+ hardware is a desktop machine with a wired ethernet connection and UK
+ keyboard.</p>
+<div class="highlight"><pre><code class="language-sh" data-lang="sh"><span class="c"># Check that you’re not using UEFI (this command will fail):</span>
+efivar -l
+
+loadkeys uk
+
+<span class="c"># Check that DHCP internet is working:</span>
+ping -c <span class="m">3</span> www.google.com
+
+<span class="c"># Nuke your disk:</span>
+sgdisk --zap-all /dev/sda
+
+<span class="c"># Create partition table (interactive application):</span>
+cgdisk /dev/sda
+
+<span class="c"># Make file systems (assuming single root partition):</span>
+mkfs.ext4 /dev/sda1
+mount /dev/sda1 /mnt
+
+<span class="c"># Base install:</span>
+pacstrap /mnt base base-devel
+
+<span class="c"># Create fstab and verify:</span>
+genfstab -U -p /mnt &gt;&gt; /mnt/etc/fstab
+cat /mnt/etc/fstab
+
+<span class="c"># Chroot into new env:</span>
+arch-chroot /mnt /bin/bash
+
+<span class="c"># Generate Locales:</span>
+<span class="nb">export </span><span class="nv">LANG</span><span class="o">=</span>en_GB.UTF-8
+<span class="nb">echo</span> “<span class="nv">$LANG</span> UTF-8” &gt; /etc/locale.gen
+locale-gen
+<span class="nb">echo </span><span class="nv">LANG</span><span class="o">=</span><span class="nv">$LANG</span> &gt; /etc/locale.conf
+
+<span class="c"># Set time zone:</span>
+ln -s /usr/share/zoneinfo/Europe/London /etc/localtime
+hwclock --systohc --utc
+
+<span class="c"># Edit hosts file to add your hostname to the end of this line:</span>
+<span class="c">#    127.0.0.1  localhost.localdomain   localhost   cec</span>
+nano /etc/hosts
+<span class="nb">export </span><span class="nv">HOSTNAME</span><span class="o">=</span>cec
+<span class="nb">echo</span> <span class="nv">$HOSTNAME</span> &gt; /etc/hostname
+
+
+<span class="c"># Find out the name of your LAN device:</span>
+ip link show
+
+<span class="c"># Enable dhcpcd for that device:</span>
+systemctl <span class="nb">enable </span>dhcpcd@<span class="o">[</span>internet-device<span class="o">]</span>.service
+
+<span class="c"># Determine and install video driver:</span>
+lspci <span class="p">|</span> grep -e VGA -e 3D
+pacman -Ss xf86-video
+pacman -S <span class="o">[</span>video-driver<span class="o">]</span>
+
+<span class="c"># Install some useful packages:</span>
+pacman -S gptfdisk syslinux vim xorg-server xorg-xinit xterm zsh <span class="se">\</span>
+wget rsync openssh
+
+<span class="c"># Uncomment appropriate line to enable sudo access to wheel group:</span>
+<span class="nv">EDITOR</span><span class="o">=</span>nano visudo
+
+<span class="c"># Install bootloader:</span>
+syslinux-install_update -iam
+
+<span class="c"># Change LABEL from /dev/sda3 to /dev/sda1 for LABELs:</span>
+<span class="c"># And set: TIMEOUT 1</span>
+nano /boot/syslinux/syslinux.cfg
+
+<span class="c"># Set keymap:</span>
+<span class="nb">echo </span><span class="nv">KEYMAP</span><span class="o">=</span>uk &gt; /etc/vconsole.conf
+
+<span class="c"># Set root password:</span>
+passwd
+
+<span class="c"># Create user and set password:</span>
+useradd -G wheel -s /bin/zsh chris
+passwd chris
+
+<span class="nb">exit</span>
+reboot
+
+<span class="c"># Login as root</span>
+
+<span class="c"># For virtualbox guests:</span>
+pacman -S virtualbox-guest-utils
+<span class="c">#</span>
+<span class="c"># Load virtualbox kernel modules:</span>
+depmod <span class="k">$(</span>uname -r<span class="k">)</span>
+modprobe -a vboxguest vboxsf vboxvideo
+<span class="nb">echo</span> -e “vboxguest<span class="se">\n</span>vboxsf<span class="se">\n</span>vboxvideo” &gt; /etc/modules-load.d/virtualbox.conf
+<span class="c"># Launch virtualbox client scripts:</span>
+VBoxClient-all
+systemctl <span class="nb">enable </span>vboxservice
+<span class="c"># End of virtualbox commands</span>
+
+<span class="c"># Test that X is working (you should see some terminals and a mouse):</span>
+startx
+
+<span class="c"># Install graphic environment (YMMV):</span>
+pacman -S gdm gnome-shell nautilus gedit file-roller gthumb <span class="se">\</span>
+    gnome-control-center gnome-terminal gnome-system-monitor
+systemctl <span class="nb">enable </span>gdm
+
+reboot
+
+<span class="c"># Log in to graphical environment as user</span>
+<span class="c"># Set input type (UK) and open gnome-terminal</span>
+
+<span class="c"># Install yaourt</span>
+mkdir -p /tmp/yaourt
+<span class="nb">cd</span> !<span class="err">$</span>
+wget https://aur.archlinux.org/packages/pa/package-query/package-query.tar.gz
+wget https://aur.archlinux.org/packages/ya/yaourt/yaourt.tar.gz
+tar -xf package-query.tar.gz
+tar -xf yaourt.tar.gz
+<span class="nb">cd </span>package-query
+makepkg -s
+sudo pacman -U package-query-*.tar.xz
+<span class="nb">cd</span> ../yaourt
+makepkg -s
+sudo pacman -U yaourt-*.tar.xz
+
+<span class="c"># Install web browser (YMMV):</span>
+yaourt google-chrome
+
+<span class="c"># Install dropbox:</span>
+yaourt dropbox
+yaourt nautilus-dropbox
+
+<span class="c"># Install office tools:</span>
+sudo pacman -S thunderbird libreoffice-fresh
+
+<span class="c"># Install programming tools:</span>
+sudo pacman -S texlive-most emacs git aspell aspell-en ruby openmpi clojure <span class="se">\</span>
+    jre7-openjdk jdk7-openjdk nodejs
+gem install bundler
+</code></pre></div>
+
+        
+            <div class="nav">
+              <hr>
+
+              <div class="next">
+                
+                <a href="/posts/pip-db" title="Read the previous post">Newer post</a>
+                
+              </div>
+
+              <div class="previous">
+                
+                <a href="/posts/arch-in-20-mins" title="Read the previous post">Older post</a>
+                
+              </div>
+
+              
+              <div class="date">
+                18 Sep 2014
+              </div>
+              
+          </div>
+        
+      </section>
+      <footer>
+        <center>
+          <p>
+            <small>
+              <a href="/posts/about">&copy; Chris Cummins 2015</a>
+            </small>
+          </p>
+        </center>
+      </footer>
+    </div>
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+    <script src="/js/site.min.js"></script>
+  </body>
+</html>

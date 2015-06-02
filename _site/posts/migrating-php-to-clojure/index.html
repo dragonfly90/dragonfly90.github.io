@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="en">
+
+  <!--
+             ____________________________________________________
+            /                                                    \
+           |    _____________________________________________     |
+           |   |                                             |    |
+           |   |                                             |    |
+           |   |                                             |    |
+           |   |                                             |    |
+           |   |  Hey you! Yes, you! Isn't this some beaut-  |    |
+           |   |  ifully crafted HTML? Drop me an email if   |    |
+           |   |  you want me to write for you:              |    |
+           |   |                                             |    |
+           |   |          chrisc.101 at gmail.com            |    |
+           |   |                                             |    |
+           |   |                                             |    |
+           |   |                                             |    |
+           |   |                                             |    |
+           |   |_____________________________________________|    |
+           |                                                      |
+            \_____________________________________________________/
+                   \_______________________________________/
+                _______________________________________________
+             _-'    .-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.  --- `-_
+          _-'.-.-. .---.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.--.  .-.-.`-_
+       _-'.-.-.-. .---.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-`__`. .-.-.-.`-_
+    _-'.-.-.-.-. .-----.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-----. .-.-.-.-.`-_
+ _-'.-.-.-.-.-. .---.-. .-----------------------------. .-.---. .---.-.-.-.`-_
+:-----------------------------------------------------------------------------:
+`---._.-----------------------------------------------------------------._.---'
+
+  -->
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    
+    
+    <title>Migrating PHP to Clojure | Chris Cummins</title>
+    
+    <meta name="description" content="The personal website of software developer and geek Chris Cummins.">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="msapplication-tooltip" content="Chris Cummins personal website">
+
+    <link href="http://fonts.googleapis.com/css?family=Montserrat:700,400" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="/css/styles.css">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+
+    <script type="text/javascript">var _gaq=_gaq||[];_gaq.push(["_setAccount","UA-40829804-1"]);_gaq.push(["_trackPageview"]);(function(){var b=document.createElement("script");b.type="text/javascript";b.async=true;b.src=("https:"==document.location.protocol?"https://ssl":"http://www")+".google-analytics.com/ga.js";var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(b,a)})();</script>
+
+  </head>
+
+  <body>
+
+    <div class="wrapper">
+
+      
+      <header>
+        <center>
+          <h1>
+            <a href="/">CHRIS<b>CUMMINS</b></a>
+            <ul>
+              <li><a href="/cv/"><b>C</b>urriculum <b>V</b>itae</a></li>
+              <li><a href="/projects/">Open Source Software</a></li>
+            </ul>
+          </h1>
+          <div class="img-frame"><img src="/images/selfie.jpg" width="180" height="180"/></div>
+          
+          <ul>
+            <li><a href="https://github.com/ChrisCummins" target="_blank">GitHub<small>Code goes here</small></a></li>
+            <li><a href="http://www.linkedin.com/profile/view?id=195091553" target="_blank">Linked In<small>All professional like</small></a></li>
+            <li><a href="http://www.facebook.com/cecummins" target="_blank">Facebook<small>All unprofessional like</small></a></li>
+            <li><a href="http://www.youtube.com/user/ChrisCummins" target="_blank">YouTube<small>Hitting drums with sticks</small></a></li>
+            <li><a href="http://soundcloud.com/peakstudio" target="_blank">SoundCloud<small>Making noises with other people</small></a></li>
+          </ul>
+        </center>
+      </header>
+
+      <section>
+        
+        
+          <div id="post">
+            <h1 class="title">Migrating PHP to Clojure</h1>
+            <h1 class="title" id="hidden-title"></h1>
+        
+
+        <p>I have been developing a large database driven website for a
+University project, which involves a user accounts system, a search
+engine frontend and a data analysis backend. Having never written such
+a system before, I opted to use PHP to create the first prototypes,
+due in large part to the seemingly endless demand for PHP experience
+in job postings, combined with the quick &quot;pick up and go&quot; start time
+offered by Apache with <code>mod_php</code>.</p>
+
+<p>Knowing full well up the front the problems and grudges that many
+people have with PHP, I thought I&#39;d document my experiences here
+where, after 3 months of development, I kicked the bucket and
+reimplemented the entire stack in Clojure.</p>
+
+<h5>Why PHP?</h5>
+
+<p>In no uncertain terms, PHP is a <em>broken language</em>. I knew this from
+the outset. My first exposure to the language was in reading Eevee&#39;s
+<a href="http://me.veekun.com/blog/2012/04/09/php-a-fractal-of-bad-design/">excellent deconstruction</a>
+of some of its many flaws, which I read long before I had even written
+my first <code>echo &quot;Hello world!&quot;;</code>.</p>
+
+<p>Despite this, the undeniable truth is that PHP has been used to write
+many <em>successful</em> projects, and continues to this day to be an
+in-demand skill, even if the rumours of its waning popularity are to
+be believed. However, for a long term solo project, the amount of
+effort that was being expended working around the caveats of the
+language started to drain at my enthusiasm for it, so it was time to
+look a superior alternative.</p>
+
+<h5>Why Clojure?</h5>
+
+<p>Of the languages which I considered (including the usual suspects of
+Ruby, Python &amp; Node), Clojure stood out as being the choice that would
+present the most interesting challenge to work with. Some notable
+differences:</p>
+
+<ul>
+<li>Purely functional programming paradigm.</li>
+<li>Fresh, and fast paced development of the language.</li>
+<li>A wonderful dependency management system provided by
+<a href="http://leiningen.org/">leiningen</a>.</li>
+<li>Lower level: there&#39;s no lumbering Apache stack to get you started.</li>
+<li>The possibility for simple and powerful concurrency.</li>
+<li>The standard data structures are all immutable.</li>
+<li>Recursion, Recursion, Recursion, Recursion...</li>
+</ul>
+
+<p>What really appealed to me though is the elegance of LISP dialects. I
+once spent a rainy weekend working through the first few chapters of
+<a href="http://mitpress.mit.edu/sicp/">SICP</a>, and quickly found myself
+engrossed in the purity of the language. While the C family of
+languages feel like an extension of machine code, LISP dialects feel
+like an extension of mathematics and abstract logic.</p>
+
+<h5>Porting the codebase</h5>
+
+<p>The rewrite took just over 3 days, and while my experiences with
+Scheme meant that I was fairly comfortable with the syntax of LISPs,
+it took a good few weeks afterwards to truly start to get to grip with
+the paradigm and working with higher order functions. If interested,
+the git tree before and after the rewrite look like: PHP
+<a href="https://github.com/ChrisCummins/pip-db/tree/8ae6043a9a2a051a03c6485646396a2ed4725f04/www"><code>8ae6043a9a</code></a>,
+Clojure
+<a href="https://github.com/ChrisCummins/pip-db/tree/cb8e4caddd5f99743fe686b00ed39389d6d1b17b/src/pip_db"><code>cb8e4caddd</code></a>.
+A quick comparison:</p>
+
+<table>
+<tr><td></td><td><strong>PHP</strong></td><td><strong>Clojure</strong></td></tr>
+<tr><td>Lines of code</td><td>4274</td><td>1086</td></tr>
+<tr><td>Feature complete-ness</td><td>75%</td><td>80%</td></tr>
+<tr><td>Test coverage</td><td>0%</td><td>5%</td></tr>
+<tr><td>DOM Content Loaded</td><td>1.45 s</td><td>1.42 s</td></tr>
+</table>
+
+<p>Advantages:</p>
+
+<ul>
+<li>Massively reduced code size. LISP can be an incredibly concise
+language.</li>
+<li>Support for simple unit testing built into the core language.</li>
+<li>Simple plugin and library management.</li>
+<li>Increased programmer happiness!</li>
+</ul>
+
+<p>Disadvantages:</p>
+
+<ul>
+<li>Unstable APIs and changing language spec.</li>
+<li>Not very much documentation or examples available.</li>
+<li>Almost all documentation (where found) is out of date.</li>
+</ul>
+
+
+        
+            <div class="nav">
+              <hr>
+
+              <div class="next">
+                
+                <a href="/posts/jabs" title="Read the previous post">Newer post</a>
+                
+              </div>
+
+              <div class="previous">
+                
+                <a href="/posts/migrating-php-to-clojure" title="Read the previous post">Older post</a>
+                
+              </div>
+
+              
+              <div class="date">
+                10 Feb 2014
+              </div>
+              
+          </div>
+        
+      </section>
+      <footer>
+        <center>
+          <p>
+            <small>
+              <a href="/posts/about">&copy; Chris Cummins 2015</a>
+            </small>
+          </p>
+        </center>
+      </footer>
+    </div>
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+    <script src="/js/site.min.js"></script>
+  </body>
+</html>

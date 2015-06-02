@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="en">
+
+  <!--
+             ____________________________________________________
+            /                                                    \
+           |    _____________________________________________     |
+           |   |                                             |    |
+           |   |                                             |    |
+           |   |                                             |    |
+           |   |                                             |    |
+           |   |  Hey you! Yes, you! Isn't this some beaut-  |    |
+           |   |  ifully crafted HTML? Drop me an email if   |    |
+           |   |  you want me to write for you:              |    |
+           |   |                                             |    |
+           |   |          chrisc.101 at gmail.com            |    |
+           |   |                                             |    |
+           |   |                                             |    |
+           |   |                                             |    |
+           |   |                                             |    |
+           |   |_____________________________________________|    |
+           |                                                      |
+            \_____________________________________________________/
+                   \_______________________________________/
+                _______________________________________________
+             _-'    .-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.  --- `-_
+          _-'.-.-. .---.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.--.  .-.-.`-_
+       _-'.-.-.-. .---.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-`__`. .-.-.-.`-_
+    _-'.-.-.-.-. .-----.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-----. .-.-.-.-.`-_
+ _-'.-.-.-.-.-. .---.-. .-----------------------------. .-.---. .---.-.-.-.`-_
+:-----------------------------------------------------------------------------:
+`---._.-----------------------------------------------------------------._.---'
+
+  -->
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    
+    
+    <title>Untangling the preprocessor | Chris Cummins</title>
+    
+    <meta name="description" content="The personal website of software developer and geek Chris Cummins.">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="msapplication-tooltip" content="Chris Cummins personal website">
+
+    <link href="http://fonts.googleapis.com/css?family=Montserrat:700,400" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="/css/styles.css">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+
+    <script type="text/javascript">var _gaq=_gaq||[];_gaq.push(["_setAccount","UA-40829804-1"]);_gaq.push(["_trackPageview"]);(function(){var b=document.createElement("script");b.type="text/javascript";b.async=true;b.src=("https:"==document.location.protocol?"https://ssl":"http://www")+".google-analytics.com/ga.js";var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(b,a)})();</script>
+
+  </head>
+
+  <body>
+
+    <div class="wrapper">
+
+      
+      <header>
+        <center>
+          <h1>
+            <a href="/">CHRIS<b>CUMMINS</b></a>
+            <ul>
+              <li><a href="/cv/"><b>C</b>urriculum <b>V</b>itae</a></li>
+              <li><a href="/projects/">Open Source Software</a></li>
+            </ul>
+          </h1>
+          <div class="img-frame"><img src="/images/selfie.jpg" width="180" height="180"/></div>
+          
+          <ul>
+            <li><a href="https://github.com/ChrisCummins" target="_blank">GitHub<small>Code goes here</small></a></li>
+            <li><a href="http://www.linkedin.com/profile/view?id=195091553" target="_blank">Linked In<small>All professional like</small></a></li>
+            <li><a href="http://www.facebook.com/cecummins" target="_blank">Facebook<small>All unprofessional like</small></a></li>
+            <li><a href="http://www.youtube.com/user/ChrisCummins" target="_blank">YouTube<small>Hitting drums with sticks</small></a></li>
+            <li><a href="http://soundcloud.com/peakstudio" target="_blank">SoundCloud<small>Making noises with other people</small></a></li>
+          </ul>
+        </center>
+      </header>
+
+      <section>
+        
+        
+          <div id="post">
+            <h1 class="title">Untangling the preprocessor</h1>
+            <h1 class="title" id="hidden-title"></h1>
+        
+
+        <p>I found while working on my latest <a href="https://github.com/ChrisCummins/euclid">pet
+project</a> that GCC
+<a href="http://gcc.gnu.org/onlinedocs/gcc/Pragmas.html">pragmas</a> and builtins were
+getting in the way of clean Doxygen parsing, for example, the following snippet
+would cause problems:</p>
+<div class="highlight"><pre><code class="language-c" data-lang="c"><span class="k">struct</span> <span class="n">foo</span> <span class="p">{</span>
+  <span class="k">struct</span> <span class="n">bar</span> <span class="n">yeah</span><span class="p">;</span>
+  <span class="kt">char</span> <span class="o">*</span><span class="n">woah</span><span class="p">;</span>
+  <span class="kt">int</span> <span class="n">wow</span><span class="p">;</span>
+<span class="p">}</span> <span class="n">__attribute__</span><span class="p">((</span><span class="n">packed</span><span class="p">));</span>
+
+<span class="n">_Pragma</span><span class="p">(</span><span class="s">&quot;GCC diagnostic ignore -Wunused-parameter&quot;</span><span class="p">)</span>
+<span class="kt">void</span> <span class="n">foo</span><span class="p">(</span><span class="k">struct</span> <span class="n">foo</span> <span class="o">*</span><span class="n">f</span><span class="p">)</span> <span class="p">{</span>
+  <span class="n">do_nothing_useful</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre></div>
+<p><em>(Editors note: This is not production code... yet)</em></p>
+
+<p>For future reference, Doxygen can easily be configured to ignore certain macros:</p>
+<div class="highlight"><pre><code class="language-ini" data-lang="ini"><span class="c1"># ======================================</span>
+<span class="c1"># Allow us to define our own list of</span>
+<span class="c1"># macros to expand during preprocessing</span>
+<span class="c1"># ======================================</span>
+<span class="na">ENABLE_PREPROCESSING</span>   <span class="o">=</span> <span class="s">YES</span>
+<span class="na">MACRO_EXPANSION</span>        <span class="o">=</span> <span class="s">YES</span>
+<span class="na">EXPAND_ONLY_PREDEF</span>     <span class="o">=</span> <span class="s">YES</span>
+
+<span class="c1"># --------------------------------------</span>
+<span class="c1"># A list of all of the macros to expand,</span>
+<span class="c1"># in the form &lt;macro&gt;=&lt;expansion&gt;.</span>
+<span class="c1"># --------------------------------------</span>
+<span class="na">PREDEFINED</span>             <span class="o">=</span> <span class="s">__attribute__(x)=</span>
+<span class="na">PREDEFINED            +</span><span class="o">=</span> <span class="s">_Pragma(x)=</span>
+</code></pre></div>
+
+        
+            <div class="nav">
+              <hr>
+
+              <div class="next">
+                
+                <a href="/posts/im-a-vim-user" title="Read the previous post">Newer post</a>
+                
+              </div>
+
+              <div class="previous">
+                
+                <a href="/posts/untangling-the-preprocessor" title="Read the previous post">Older post</a>
+                
+              </div>
+
+              
+              <div class="date">
+                07 May 2013
+              </div>
+              
+          </div>
+        
+      </section>
+      <footer>
+        <center>
+          <p>
+            <small>
+              <a href="/posts/about">&copy; Chris Cummins 2015</a>
+            </small>
+          </p>
+        </center>
+      </footer>
+    </div>
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+    <script src="/js/site.min.js"></script>
+  </body>
+</html>

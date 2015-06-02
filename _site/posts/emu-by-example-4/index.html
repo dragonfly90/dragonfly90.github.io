@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="en">
+
+  <!--
+             ____________________________________________________
+            /                                                    \
+           |    _____________________________________________     |
+           |   |                                             |    |
+           |   |                                             |    |
+           |   |                                             |    |
+           |   |                                             |    |
+           |   |  Hey you! Yes, you! Isn't this some beaut-  |    |
+           |   |  ifully crafted HTML? Drop me an email if   |    |
+           |   |  you want me to write for you:              |    |
+           |   |                                             |    |
+           |   |          chrisc.101 at gmail.com            |    |
+           |   |                                             |    |
+           |   |                                             |    |
+           |   |                                             |    |
+           |   |                                             |    |
+           |   |_____________________________________________|    |
+           |                                                      |
+            \_____________________________________________________/
+                   \_______________________________________/
+                _______________________________________________
+             _-'    .-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.  --- `-_
+          _-'.-.-. .---.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.--.  .-.-.`-_
+       _-'.-.-.-. .---.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-`__`. .-.-.-.`-_
+    _-'.-.-.-.-. .-----.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-----. .-.-.-.-.`-_
+ _-'.-.-.-.-.-. .---.-. .-----------------------------. .-.---. .---.-.-.-.`-_
+:-----------------------------------------------------------------------------:
+`---._.-----------------------------------------------------------------._.---'
+
+  -->
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    
+    
+    <title>Emu by example, part 4 | Chris Cummins</title>
+    
+    <meta name="description" content="The personal website of software developer and geek Chris Cummins.">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="msapplication-tooltip" content="Chris Cummins personal website">
+
+    <link href="http://fonts.googleapis.com/css?family=Montserrat:700,400" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="/css/styles.css">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+
+    <script type="text/javascript">var _gaq=_gaq||[];_gaq.push(["_setAccount","UA-40829804-1"]);_gaq.push(["_trackPageview"]);(function(){var b=document.createElement("script");b.type="text/javascript";b.async=true;b.src=("https:"==document.location.protocol?"https://ssl":"http://www")+".google-analytics.com/ga.js";var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(b,a)})();</script>
+
+  </head>
+
+  <body>
+
+    <div class="wrapper">
+
+      
+      <header>
+        <center>
+          <h1>
+            <a href="/">CHRIS<b>CUMMINS</b></a>
+            <ul>
+              <li><a href="/cv/"><b>C</b>urriculum <b>V</b>itae</a></li>
+              <li><a href="/projects/">Open Source Software</a></li>
+            </ul>
+          </h1>
+          <div class="img-frame"><img src="/images/selfie.jpg" width="180" height="180"/></div>
+          
+          <ul>
+            <li><a href="https://github.com/ChrisCummins" target="_blank">GitHub<small>Code goes here</small></a></li>
+            <li><a href="http://www.linkedin.com/profile/view?id=195091553" target="_blank">Linked In<small>All professional like</small></a></li>
+            <li><a href="http://www.facebook.com/cecummins" target="_blank">Facebook<small>All unprofessional like</small></a></li>
+            <li><a href="http://www.youtube.com/user/ChrisCummins" target="_blank">YouTube<small>Hitting drums with sticks</small></a></li>
+            <li><a href="http://soundcloud.com/peakstudio" target="_blank">SoundCloud<small>Making noises with other people</small></a></li>
+          </ul>
+        </center>
+      </header>
+
+      <section>
+        
+        
+          <div id="post">
+            <h1 class="title">Emu by example, part 4</h1>
+            <h1 class="title" id="hidden-title"></h1>
+        
+
+        <h4>Part 4: Squash and prune</h4>
+
+<p>In the <a href="/posts/emu-by-example-3/">last post</a> we covered how to
+identify snapshots uniquely using their IDs and various shorthand
+aliases, and how to verify and checkout individual snapshots. Today
+we&#39;re going to cover two further important topics: How to merge
+snapshots, and how to remove snapshots.</p>
+
+<h6>squash</h6>
+
+<p>The <code>squash</code> command accepts multiple chronologically ordered
+snapshots as arguments, and squashes each of them together to form a
+new, <em>merged</em>, snapshot. That is, if we squash together snapshots <em>A</em>
+and <em>B</em>, the resulting snapshot <em>C</em> would contain all of the files of
+<em>A</em> and <em>B</em>, without duplicates. Where there are competing files, the
+most recent snapshot&#39;s file will be preserved. For example, let&#39;s say
+we wanted to squash the last four snapshots together:</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">$ emu squash origin:TAIL~3..                                           17:27:23
+origin: merging snapshot 2014-09-30 17.30.01
+origin: merging snapshot 2014-09-30 17.30.02
+origin: merging snapshot 2014-09-30 17.30.03
+origin: merging snapshot 2014-09-30 17.30.04
+origin: merged 4 snapshots
+origin: removing snapshot 2014-09-30 17.30.01
+origin: removing snapshot 2014-09-30 17.30.02
+origin: removing snapshot 2014-09-30 17.30.03
+origin: removing snapshot 2014-09-30 17.30.04
+origin: new snapshot 2014-09-30 17.30.16
+</code></pre></div>
+<p>The output explains a lot about the mechanics of <code>squash</code>. First, it
+merges each snapshot in turn into a new one. Once this new snapshot
+has been fully merged, the squashed snapshots are removed, and the new
+snapshot is inserted into the snapshot history, being assigned an ID
+and date. Let&#39;s now squash the two most recent snapshots:</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">$ emu squash origin:HEAD origin:HEAD~                                  17:27:23
+origin: merging snapshot 2014-09-30 17.30.47
+origin: merging snapshot 2014-09-30 17.30.44
+origin: merged 2 snapshots
+origin: removing snapshot 2014-09-30 17.30.47
+origin: removing snapshot 2014-09-30 17.30.44
+origin: HEAD at 542ae8cdda39a3ee5e6b4b0d3255bfef95601890
+origin: new snapshot 2014-09-30 17.30.53
+</code></pre></div>
+<p>Notice now that since we have created a new snapshot out of the HEAD,
+we must assign this new snapshot as HEAD in order to preserve the
+snapshot history. Squash is most useful when we want to preserve the
+data contained within multiple snapshots, without also preserving the
+history of those unique snapshots. The history that is lost is the
+differences between the squashed snapshots. Now we&#39;re going to take a
+look at the <code>prune</code> command, which is how we remove history in emu.</p>
+
+<h6>prune</h6>
+
+<p>The <code>squash</code> examples have already demonstrated the effects of
+<code>prune</code>. Pruning a snapshot means simply removing it, and all
+associated data, from the backup sink. The most common use case for
+<code>prune</code> is to simply remove old snapshots that we&#39;re no longer
+interested in preserving. For example, to remove the five oldest
+snapshots from sink origin:</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">$ emu prune origin:TAIL~4..                                            17:27:23
+origin: removing snapshot 2014-09-30 17.41.43
+origin: removing snapshot 2014-09-30 17.30.53
+origin: removing snapshot 2014-09-30 17.30.16
+origin: removing snapshot 2014-09-30 17.30.07
+origin: removing snapshot 2014-09-30 17.30.06
+</code></pre></div>
+<p>And to remove the most recent snapshot:</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">$ emu prune origin:HEAD                                                17:27:23
+origin: removing snapshot 2014-09-30 17.41.59
+origin: HEAD at 542aeb59da39a3ee5e6b4b0d3255bfef95601890
+</code></pre></div>
+<p>Notice again how removing the HEAD means that we must set a new
+snapshot as the HEAD. This new HEAD is simply the parent of the old
+deleted HEAD.</p>
+
+<p>That&#39;s it for today. In the final part we&#39;ll take a look at the
+<code>clean</code> command, and the various ways in which emu&#39;s behaviour can be
+customised. See you then!</p>
+
+
+        
+            <div class="nav">
+              <hr>
+
+              <div class="next">
+                
+                <a href="/posts/arch-in-20-mins" title="Read the previous post">Newer post</a>
+                
+              </div>
+
+              <div class="previous">
+                
+                <a href="/posts/emu-by-example-4" title="Read the previous post">Older post</a>
+                
+              </div>
+
+              
+              <div class="date">
+                11 Sep 2014
+              </div>
+              
+          </div>
+        
+      </section>
+      <footer>
+        <center>
+          <p>
+            <small>
+              <a href="/posts/about">&copy; Chris Cummins 2015</a>
+            </small>
+          </p>
+        </center>
+      </footer>
+    </div>
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+    <script src="/js/site.min.js"></script>
+  </body>
+</html>

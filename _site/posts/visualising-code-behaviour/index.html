@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="en">
+
+  <!--
+             ____________________________________________________
+            /                                                    \
+           |    _____________________________________________     |
+           |   |                                             |    |
+           |   |                                             |    |
+           |   |                                             |    |
+           |   |                                             |    |
+           |   |  Hey you! Yes, you! Isn't this some beaut-  |    |
+           |   |  ifully crafted HTML? Drop me an email if   |    |
+           |   |  you want me to write for you:              |    |
+           |   |                                             |    |
+           |   |          chrisc.101 at gmail.com            |    |
+           |   |                                             |    |
+           |   |                                             |    |
+           |   |                                             |    |
+           |   |                                             |    |
+           |   |_____________________________________________|    |
+           |                                                      |
+            \_____________________________________________________/
+                   \_______________________________________/
+                _______________________________________________
+             _-'    .-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.  --- `-_
+          _-'.-.-. .---.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.--.  .-.-.`-_
+       _-'.-.-.-. .---.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-`__`. .-.-.-.`-_
+    _-'.-.-.-.-. .-----.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-----. .-.-.-.-.`-_
+ _-'.-.-.-.-.-. .---.-. .-----------------------------. .-.---. .---.-.-.-.`-_
+:-----------------------------------------------------------------------------:
+`---._.-----------------------------------------------------------------._.---'
+
+  -->
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    
+    
+    <title>Visualising Code Behaviour | Chris Cummins</title>
+    
+    <meta name="description" content="The personal website of software developer and geek Chris Cummins.">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="msapplication-tooltip" content="Chris Cummins personal website">
+
+    <link href="http://fonts.googleapis.com/css?family=Montserrat:700,400" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="/css/styles.css">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+
+    <script type="text/javascript">var _gaq=_gaq||[];_gaq.push(["_setAccount","UA-40829804-1"]);_gaq.push(["_trackPageview"]);(function(){var b=document.createElement("script");b.type="text/javascript";b.async=true;b.src=("https:"==document.location.protocol?"https://ssl":"http://www")+".google-analytics.com/ga.js";var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(b,a)})();</script>
+
+  </head>
+
+  <body>
+
+    <div class="wrapper">
+
+      
+      <header>
+        <center>
+          <h1>
+            <a href="/">CHRIS<b>CUMMINS</b></a>
+            <ul>
+              <li><a href="/cv/"><b>C</b>urriculum <b>V</b>itae</a></li>
+              <li><a href="/projects/">Open Source Software</a></li>
+            </ul>
+          </h1>
+          <div class="img-frame"><img src="/images/selfie.jpg" width="180" height="180"/></div>
+          
+          <ul>
+            <li><a href="https://github.com/ChrisCummins" target="_blank">GitHub<small>Code goes here</small></a></li>
+            <li><a href="http://www.linkedin.com/profile/view?id=195091553" target="_blank">Linked In<small>All professional like</small></a></li>
+            <li><a href="http://www.facebook.com/cecummins" target="_blank">Facebook<small>All unprofessional like</small></a></li>
+            <li><a href="http://www.youtube.com/user/ChrisCummins" target="_blank">YouTube<small>Hitting drums with sticks</small></a></li>
+            <li><a href="http://soundcloud.com/peakstudio" target="_blank">SoundCloud<small>Making noises with other people</small></a></li>
+          </ul>
+        </center>
+      </header>
+
+      <section>
+        
+        
+          <div id="post">
+            <h1 class="title">Visualising Code Behaviour</h1>
+            <h1 class="title" id="hidden-title"></h1>
+        
+
+        <p>I will be designing and implementing a micro-controller as part of my
+University studies, and one of the optional activities that the course
+professor suggested would be to write a disassembler for it. The
+micro-controller uses a toy instruction-set capable of some primitive
+logic and IO operations, and my approach to writing the disassembler
+was to put together a minimal parser in JavaScript to decode the
+opcodes and arguments from a list of instructions, and output an
+address, mnemonic instruction name and human-readable description:</p>
+
+<p><img src="/images/2014-01-28-code.png" alt="Code"></p>
+
+<p>The next logical step after disassembling the <em>what</em> of the code was
+to investigate the <em>why</em> of the code. For this, we need a way of
+visualising the flow of the program. For this, I turned to the
+incredibly aptly named
+<a href="http://adrai.github.io/flowchart.js/">flowchart.js</a>, which allowed to
+me to very simply turn the linear list of instructions to a true
+branching graph:</p>
+
+<p><img src="/images/2014-01-28-chart.png" alt="Code"></p>
+
+<p>The
+<a href="https://github.com/ChrisCummins/chriscummins.github.io/blob/master/js/disassembler.js">source code</a>
+which implements it clocks in at under 200 lines of code, and one of
+the reasons for this extreme brevity is the simplicity of the
+instruction set, with a whopping six operations:</p>
+
+<table>
+  <thead>
+    <tr>
+      <td>Opcode</td>
+      <td>Instruction</td>
+      <td>Description</td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>00</td>
+      <td><code>IUC</code></td>
+      <td>Increment unconditionally</td>
+    </tr>
+    <tr>
+      <td>01</td>
+      <td><code>HUC</code></td>
+      <td>Halt unconditionally</td>
+    </tr>
+    <tr>
+      <td>02</td>
+      <td><code>BUC &lt;address&gt;</code></td>
+      <td>Branch unconditionally</td>
+    </tr>
+    <tr>
+      <td>03</td>
+      <td><code>BIC &lt;address&gt;</code></td>
+      <td>Branch conditionally</td>
+    </tr>
+    <tr>
+      <td>04</td>
+      <td><code>SETO &lt;port&gt; &lt;and&gt; &lt;xor&gt;</code></td>
+      <td>Set outputs</td>
+    </tr>
+    <tr>
+      <td>05</td>
+      <td><code>TSTI &lt;port&gt; &lt;and&gt; &lt;xor&gt;</code></td>
+      <td>Test inputs</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>The disassembler and code visualiser are packaged into an interactive
+web application here:</p>
+
+<h3><a href="/disassembler/">uC Disassembler</a></h3>
+
+
+        
+            <div class="nav">
+              <hr>
+
+              <div class="next">
+                
+                <a href="/posts/migrating-php-to-clojure" title="Read the previous post">Newer post</a>
+                
+              </div>
+
+              <div class="previous">
+                
+                <a href="/posts/visualising-code-behaviour" title="Read the previous post">Older post</a>
+                
+              </div>
+
+              
+              <div class="date">
+                28 Jan 2014
+              </div>
+              
+          </div>
+        
+      </section>
+      <footer>
+        <center>
+          <p>
+            <small>
+              <a href="/posts/about">&copy; Chris Cummins 2015</a>
+            </small>
+          </p>
+        </center>
+      </footer>
+    </div>
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+    <script src="/js/site.min.js"></script>
+  </body>
+</html>

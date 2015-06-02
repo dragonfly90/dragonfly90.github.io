@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="en">
+
+  <!--
+             ____________________________________________________
+            /                                                    \
+           |    _____________________________________________     |
+           |   |                                             |    |
+           |   |                                             |    |
+           |   |                                             |    |
+           |   |                                             |    |
+           |   |  Hey you! Yes, you! Isn't this some beaut-  |    |
+           |   |  ifully crafted HTML? Drop me an email if   |    |
+           |   |  you want me to write for you:              |    |
+           |   |                                             |    |
+           |   |          chrisc.101 at gmail.com            |    |
+           |   |                                             |    |
+           |   |                                             |    |
+           |   |                                             |    |
+           |   |                                             |    |
+           |   |_____________________________________________|    |
+           |                                                      |
+            \_____________________________________________________/
+                   \_______________________________________/
+                _______________________________________________
+             _-'    .-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.  --- `-_
+          _-'.-.-. .---.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.--.  .-.-.`-_
+       _-'.-.-.-. .---.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-`__`. .-.-.-.`-_
+    _-'.-.-.-.-. .-----.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-----. .-.-.-.-.`-_
+ _-'.-.-.-.-.-. .---.-. .-----------------------------. .-.---. .---.-.-.-.`-_
+:-----------------------------------------------------------------------------:
+`---._.-----------------------------------------------------------------._.---'
+
+  -->
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    
+    
+    <title>Typesetting the LaTeX way | Chris Cummins</title>
+    
+    <meta name="description" content="The personal website of software developer and geek Chris Cummins.">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="msapplication-tooltip" content="Chris Cummins personal website">
+
+    <link href="http://fonts.googleapis.com/css?family=Montserrat:700,400" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="/css/styles.css">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+
+    <script type="text/javascript">var _gaq=_gaq||[];_gaq.push(["_setAccount","UA-40829804-1"]);_gaq.push(["_trackPageview"]);(function(){var b=document.createElement("script");b.type="text/javascript";b.async=true;b.src=("https:"==document.location.protocol?"https://ssl":"http://www")+".google-analytics.com/ga.js";var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(b,a)})();</script>
+
+  </head>
+
+  <body>
+
+    <div class="wrapper">
+
+      
+      <header>
+        <center>
+          <h1>
+            <a href="/">CHRIS<b>CUMMINS</b></a>
+            <ul>
+              <li><a href="/cv/"><b>C</b>urriculum <b>V</b>itae</a></li>
+              <li><a href="/projects/">Open Source Software</a></li>
+            </ul>
+          </h1>
+          <div class="img-frame"><img src="/images/selfie.jpg" width="180" height="180"/></div>
+          
+          <ul>
+            <li><a href="https://github.com/ChrisCummins" target="_blank">GitHub<small>Code goes here</small></a></li>
+            <li><a href="http://www.linkedin.com/profile/view?id=195091553" target="_blank">Linked In<small>All professional like</small></a></li>
+            <li><a href="http://www.facebook.com/cecummins" target="_blank">Facebook<small>All unprofessional like</small></a></li>
+            <li><a href="http://www.youtube.com/user/ChrisCummins" target="_blank">YouTube<small>Hitting drums with sticks</small></a></li>
+            <li><a href="http://soundcloud.com/peakstudio" target="_blank">SoundCloud<small>Making noises with other people</small></a></li>
+          </ul>
+        </center>
+      </header>
+
+      <section>
+        
+        
+          <div id="post">
+            <h1 class="title">Typesetting the LaTeX way</h1>
+            <h1 class="title" id="hidden-title"></h1>
+        
+
+        <p>I love text. Naturally. I mean, between programming, University work,
+emails and sexting, I spend around 50 hours a week doing the &quot;digit
+dance&quot; to make words appear on a glass screen in front of me. As a
+consequence, I&#39;m obsessed with the appearance of type, and those
+neatly formatted PDFs generated by <code>LaTeX</code> has for a long time been my
+ideal of what nice typesetting looks like.</p>
+
+<p>Recently, I came across two wonderful projects which allowed me take
+my filthy <code>LaTeX</code> fetish in a whole new web direction:</p>
+
+<h2>Computer Modern for the Web</h2>
+
+<p>Christian Perfect&#39;s work on enabling
+<a href="http://checkmyworking.com/cm-web-fonts/">Computer Modern on the web</a>
+is amazing. I <em>love</em> Knuth&#39;s aesthetic, and the possibility of
+bringing those delightfully janky fonts to a website near you made my
+day. Here&#39;s a before and after of Lato vs Computer Modern Bright:</p>
+
+<p><img src="/images/2013-12-27-font.png" alt="Lato vs CMU Bright"></p>
+
+<p>It was just a simple case of importing the right font into my style
+sheet and I was on my way. Now that the choice of font has been made,
+we can now focus on one of the more refined aspects of the <code>LaTeX</code>
+style:</p>
+
+<h2>JavaScript Hyphenation</h2>
+
+<p>The ability to lay out beautiful solid blocks of text is one of
+<code>LaTeX</code>&#39;s strongest points. The key to this is a
+<a href="http://defoe.sourceforge.net/folio/knuth-plass.html">fantastic line-breaking algorithm</a>
+implemented by Knuth and Plass, that understands how and when to break
+words and lines in a way which surpasses many more common
+alternatives. CSS3 introduced a number of new properties to help
+approximate decent text justification, but there&#39;s nothing quite like
+the real thing, and that&#39;s exactly what Bram Stein has achieved in his
+JavaScript implementation of the
+<a href="https://github.com/bramstein/typeset">Knuth Plass algorithm</a>.</p>
+
+<p>Unfortunately, it seems too basic to be used with formatted text which
+contains nested HTML (the algorithm splits the text based on words,
+discarding all HTML), but thankfully Stein&#39;s
+<a href="http://www.bramstein.com/projects/hypher/">Hyphenation Engine</a> proves
+capable of performing the majority of the heavy lifting, with the CSS
+<code>text-justify: newspaper</code> attribute being able to complete the job,
+providing a pretty decent approximation. The hypher jQuery plugin is
+extremely easy to use, boiling down to something along the lines of:</p>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;jquery.hypher.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+<span class="nt">&lt;script&gt;</span><span class="nx">$</span><span class="p">(</span><span class="s1">&#39;p&#39;</span><span class="p">).</span><span class="nx">hyphenate</span><span class="p">(</span><span class="s1">&#39;en-gb&#39;</span><span class="p">);</span><span class="nt">&lt;/script&gt;</span>
+</code></pre></div>
+<p>Here&#39;s a before and after screenshot of plain old CSS justified text
+(left), and the same justified text after hyphenating with Bram&#39;s
+<code>hypher</code> package. The difference, while subtle, is convincing:</p>
+
+<p><img src="/images/2013-12-27-hyphenation.png" alt="Before and after of hyphenated text"></p>
+
+<p>To my eyes, those two changes made the text on this whole site come
+alive. But hey, such is the power of confirmation bias, right?</p>
+
+
+        
+            <div class="nav">
+              <hr>
+
+              <div class="next">
+                
+                <a href="/posts/about" title="Read the previous post">Newer post</a>
+                
+              </div>
+
+              <div class="previous">
+                
+                <a href="/posts/typesetting" title="Read the previous post">Older post</a>
+                
+              </div>
+
+              
+              <div class="date">
+                27 Dec 2013
+              </div>
+              
+          </div>
+        
+      </section>
+      <footer>
+        <center>
+          <p>
+            <small>
+              <a href="/posts/about">&copy; Chris Cummins 2015</a>
+            </small>
+          </p>
+        </center>
+      </footer>
+    </div>
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+    <script src="/js/site.min.js"></script>
+  </body>
+</html>

@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="en">
+
+  <!--
+             ____________________________________________________
+            /                                                    \
+           |    _____________________________________________     |
+           |   |                                             |    |
+           |   |                                             |    |
+           |   |                                             |    |
+           |   |                                             |    |
+           |   |  Hey you! Yes, you! Isn't this some beaut-  |    |
+           |   |  ifully crafted HTML? Drop me an email if   |    |
+           |   |  you want me to write for you:              |    |
+           |   |                                             |    |
+           |   |          chrisc.101 at gmail.com            |    |
+           |   |                                             |    |
+           |   |                                             |    |
+           |   |                                             |    |
+           |   |                                             |    |
+           |   |_____________________________________________|    |
+           |                                                      |
+            \_____________________________________________________/
+                   \_______________________________________/
+                _______________________________________________
+             _-'    .-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.  --- `-_
+          _-'.-.-. .---.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.--.  .-.-.`-_
+       _-'.-.-.-. .---.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-`__`. .-.-.-.`-_
+    _-'.-.-.-.-. .-----.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-----. .-.-.-.-.`-_
+ _-'.-.-.-.-.-. .---.-. .-----------------------------. .-.---. .---.-.-.-.`-_
+:-----------------------------------------------------------------------------:
+`---._.-----------------------------------------------------------------._.---'
+
+  -->
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    
+    
+    <title>I’m a vim user, get me out of here! | Chris Cummins</title>
+    
+    <meta name="description" content="The personal website of software developer and geek Chris Cummins.">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="msapplication-tooltip" content="Chris Cummins personal website">
+
+    <link href="http://fonts.googleapis.com/css?family=Montserrat:700,400" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="/css/styles.css">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+
+    <script type="text/javascript">var _gaq=_gaq||[];_gaq.push(["_setAccount","UA-40829804-1"]);_gaq.push(["_trackPageview"]);(function(){var b=document.createElement("script");b.type="text/javascript";b.async=true;b.src=("https:"==document.location.protocol?"https://ssl":"http://www")+".google-analytics.com/ga.js";var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(b,a)})();</script>
+
+  </head>
+
+  <body>
+
+    <div class="wrapper">
+
+      
+      <header>
+        <center>
+          <h1>
+            <a href="/">CHRIS<b>CUMMINS</b></a>
+            <ul>
+              <li><a href="/cv/"><b>C</b>urriculum <b>V</b>itae</a></li>
+              <li><a href="/projects/">Open Source Software</a></li>
+            </ul>
+          </h1>
+          <div class="img-frame"><img src="/images/selfie.jpg" width="180" height="180"/></div>
+          
+          <ul>
+            <li><a href="https://github.com/ChrisCummins" target="_blank">GitHub<small>Code goes here</small></a></li>
+            <li><a href="http://www.linkedin.com/profile/view?id=195091553" target="_blank">Linked In<small>All professional like</small></a></li>
+            <li><a href="http://www.facebook.com/cecummins" target="_blank">Facebook<small>All unprofessional like</small></a></li>
+            <li><a href="http://www.youtube.com/user/ChrisCummins" target="_blank">YouTube<small>Hitting drums with sticks</small></a></li>
+            <li><a href="http://soundcloud.com/peakstudio" target="_blank">SoundCloud<small>Making noises with other people</small></a></li>
+          </ul>
+        </center>
+      </header>
+
+      <section>
+        
+        
+          <div id="post">
+            <h1 class="title">I’m a vim user, get me out of here!</h1>
+            <h1 class="title" id="hidden-title"></h1>
+        
+
+        <p>The Emacs vs. Vim war has grown to Palestine/Israel proportions (in that it it&#39;s
+a perpetual stalemate that can only be resolved by military intervention), and
+there is little common ground between their command sets.</p>
+
+<p>This is all well and good, but can pose a real problem when you&#39;re happily
+buffering-it-up with your LISP fuelled editor of preference and a vim user comes
+over and tries to use your machine.</p>
+
+<p>To avoid the catastrophic repercussions of letting a vim user loose within your
+beloved Emacs session, I wrote a small function for my <code>init.el</code> which spawns a
+new terminal and opens the current file at the exact same place in vim:</p>
+<div class="highlight"><pre><code class="language-lisp" data-lang="lisp"><span class="p">(</span><span class="nb">defun</span> <span class="nv">open-in-vim</span> <span class="p">()</span>
+  <span class="s">&quot;Opens the current file in vim.&quot;</span>
+  <span class="p">(</span><span class="nv">interactive</span><span class="p">)</span>
+  <span class="p">(</span><span class="k">if</span> <span class="p">(</span><span class="nb">not</span> <span class="p">(</span><span class="nb">equal</span> <span class="nv">buffer-file-name</span> <span class="no">nil</span><span class="p">))</span>
+      <span class="p">(</span><span class="k">let</span> <span class="p">((</span><span class="nv">vim-prefix</span> <span class="s">&quot;gnome-terminal -e &#39;vim&quot;</span><span class="p">)</span> <span class="p">(</span><span class="nv">vim-postfix</span> <span class="s">&quot;&#39;&quot;</span><span class="p">))</span>
+        <span class="p">(</span><span class="nv">save-buffer</span><span class="p">)</span> <span class="c1">;; First, write changes to disk</span>
+        <span class="p">(</span><span class="nv">recenter</span><span class="p">)</span> <span class="c1">;; Vim opens files with the view centred</span>
+        <span class="p">(</span><span class="nv">shell-command-to-string</span> <span class="p">(</span><span class="nv">concat</span> <span class="nv">vim-prefix</span> <span class="s">&quot; &quot;</span>
+                                         <span class="p">(</span><span class="nv">shell-quote-argument</span> <span class="nv">buffer-file-name</span><span class="p">)</span>
+                                         <span class="s">&quot; +&quot;</span>
+                                         <span class="p">(</span><span class="nv">number-to-string</span> <span class="p">(</span><span class="nv">line-number-at-pos</span><span class="p">))</span>
+                                         <span class="nv">vim-postfix</span> <span class="s">&quot; &amp;&gt;/dev/null &amp;&quot;</span><span class="p">)))</span>
+    <span class="c1">;; Not all buffers are associated with files</span>
+    <span class="p">(</span><span class="nv">message</span> <span class="s">&quot;Not a real file&quot;</span><span class="p">)))</span>
+</code></pre></div>
+<p>You can assign it a top level key binding for easy button mashing:</p>
+<div class="highlight"><pre><code class="language-lisp" data-lang="lisp"><span class="p">(</span><span class="nv">global-set-key</span> <span class="nv">[f12]</span> <span class="ss">&#39;open-in-vim</span><span class="p">)</span>
+</code></pre></div>
+
+        
+            <div class="nav">
+              <hr>
+
+              <div class="next">
+                
+                <a href="/posts/building-a-portable-path" title="Read the previous post">Newer post</a>
+                
+              </div>
+
+              <div class="previous">
+                
+                <a href="/posts/im-a-vim-user" title="Read the previous post">Older post</a>
+                
+              </div>
+
+              
+              <div class="date">
+                10 May 2013
+              </div>
+              
+          </div>
+        
+      </section>
+      <footer>
+        <center>
+          <p>
+            <small>
+              <a href="/posts/about">&copy; Chris Cummins 2015</a>
+            </small>
+          </p>
+        </center>
+      </footer>
+    </div>
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+    <script src="/js/site.min.js"></script>
+  </body>
+</html>

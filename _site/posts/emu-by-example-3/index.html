@@ -1,0 +1,239 @@
+<!doctype html>
+<html lang="en">
+
+  <!--
+             ____________________________________________________
+            /                                                    \
+           |    _____________________________________________     |
+           |   |                                             |    |
+           |   |                                             |    |
+           |   |                                             |    |
+           |   |                                             |    |
+           |   |  Hey you! Yes, you! Isn't this some beaut-  |    |
+           |   |  ifully crafted HTML? Drop me an email if   |    |
+           |   |  you want me to write for you:              |    |
+           |   |                                             |    |
+           |   |          chrisc.101 at gmail.com            |    |
+           |   |                                             |    |
+           |   |                                             |    |
+           |   |                                             |    |
+           |   |                                             |    |
+           |   |_____________________________________________|    |
+           |                                                      |
+            \_____________________________________________________/
+                   \_______________________________________/
+                _______________________________________________
+             _-'    .-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.  --- `-_
+          _-'.-.-. .---.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.--.  .-.-.`-_
+       _-'.-.-.-. .---.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-`__`. .-.-.-.`-_
+    _-'.-.-.-.-. .-----.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-----. .-.-.-.-.`-_
+ _-'.-.-.-.-.-. .---.-. .-----------------------------. .-.---. .---.-.-.-.`-_
+:-----------------------------------------------------------------------------:
+`---._.-----------------------------------------------------------------._.---'
+
+  -->
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    
+    
+    <title>Emu by example, part 3 | Chris Cummins</title>
+    
+    <meta name="description" content="The personal website of software developer and geek Chris Cummins.">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="msapplication-tooltip" content="Chris Cummins personal website">
+
+    <link href="http://fonts.googleapis.com/css?family=Montserrat:700,400" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="/css/styles.css">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+
+    <script type="text/javascript">var _gaq=_gaq||[];_gaq.push(["_setAccount","UA-40829804-1"]);_gaq.push(["_trackPageview"]);(function(){var b=document.createElement("script");b.type="text/javascript";b.async=true;b.src=("https:"==document.location.protocol?"https://ssl":"http://www")+".google-analytics.com/ga.js";var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(b,a)})();</script>
+
+  </head>
+
+  <body>
+
+    <div class="wrapper">
+
+      
+      <header>
+        <center>
+          <h1>
+            <a href="/">CHRIS<b>CUMMINS</b></a>
+            <ul>
+              <li><a href="/cv/"><b>C</b>urriculum <b>V</b>itae</a></li>
+              <li><a href="/projects/">Open Source Software</a></li>
+            </ul>
+          </h1>
+          <div class="img-frame"><img src="/images/selfie.jpg" width="180" height="180"/></div>
+          
+          <ul>
+            <li><a href="https://github.com/ChrisCummins" target="_blank">GitHub<small>Code goes here</small></a></li>
+            <li><a href="http://www.linkedin.com/profile/view?id=195091553" target="_blank">Linked In<small>All professional like</small></a></li>
+            <li><a href="http://www.facebook.com/cecummins" target="_blank">Facebook<small>All unprofessional like</small></a></li>
+            <li><a href="http://www.youtube.com/user/ChrisCummins" target="_blank">YouTube<small>Hitting drums with sticks</small></a></li>
+            <li><a href="http://soundcloud.com/peakstudio" target="_blank">SoundCloud<small>Making noises with other people</small></a></li>
+          </ul>
+        </center>
+      </header>
+
+      <section>
+        
+        
+          <div id="post">
+            <h1 class="title">Emu by example, part 3</h1>
+            <h1 class="title" id="hidden-title"></h1>
+        
+
+        <h4>Part 3: Verify and checkout</h4>
+
+<p>Now that we know how to create
+<a href="/posts/emu-by-example-1/">sinks and sources</a> and
+<a href="/posts/emu-by-example-2/">push snapshots</a>, we will demonstrate in
+this tutorial how to validate your backups and restore them.</p>
+
+<h6>verify</h6>
+
+<p>Continuing from where we left off, we have a test source with some
+junk data and a sink with 10 snapshots. Now, we&#39;re going to see how we
+can check these snapshots to make sure that they haven&#39;t been modified
+or corrupted. To do this, we&#39;re going to use <code>verify</code> command, and
+introduce some new syntax.</p>
+
+<p>The <code>verify</code> command accepts individual snapshots as arguments. This
+means that you have exact control over which snapshots you would like
+to verify, and that means we need a syntax for specifying
+snapshots. The first and most simplest way is to just name the sink,
+as this will verify every snapshot that the sink has:</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">$ emu verify origin
+origin:540b4e9b2f16b25fb1c7fa2e2f50dd6d7a9dc39e ok
+origin:540b4e9a2f16b25fb1c7fa2e2f50dd6d7a9dc39e ok
+origin:540b4e992f16b25fb1c7fa2e2f50dd6d7a9dc39e ok
+origin:540b4e982f16b25fb1c7fa2e2f50dd6d7a9dc39e ok
+origin:540b4e972f16b25fb1c7fa2e2f50dd6d7a9dc39e ok
+...
+</code></pre></div>
+<p>What the <code>verify</code> program has done is to recompute the checksum of a
+particular snapshot, and check that this matches the checksum that was
+created when the snapshot was first made. The algorithm used to create
+the checksum is a topic for another time, so for now we just need to
+know that if a snapshot is modified or tampered with, this
+verification will fail. Let&#39;s do that now by adding an unwanted file
+to one of our snapshots:</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">$ echo &quot;woops&quot; &gt; &quot;../sink/2014-09-06 18.12.43/bad-data&quot;
+$ emu verify
+origin:540b4e9b2f16b25fb1c7fa2e2f50dd6d7a9dc39e bad
+origin:540b4e9a2f16b25fb1c7fa2e2f50dd6d7a9dc39e ok
+origin:540b4e992f16b25fb1c7fa2e2f50dd6d7a9dc39e ok
+...
+</code></pre></div>
+<p>Now we see that the verification for that snapshot failed. Running
+<code>verify</code> periodically on a sink is enough to reassure yourself that
+your backups are safe and unmodified. Anyway, back to the syntax. You
+see in the output of verify that it pairs up snapshots in the form
+<code>&lt;sink&gt;:&lt;id&gt;</code>. We can use this to specify snapshots, e.g.:</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">$ emu verify origin:540b4e9a2f16b25fb1c7fa2e2f50dd6d7a9dc39e
+origin:540b4e9a2f16b25fb1c7fa2e2f50dd6d7a9dc39e ok
+</code></pre></div>
+<p>We can do this for multiple snapshots. There are two further useful
+short-hands for specifying snapshots. The first is <code>HEAD</code>, which
+evaluates to the ID of the sink&#39;s HEAD:</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">$ emu verify origin:HEAD
+origin:540b4e9b2f16b25fb1c7fa2e2f50dd6d7a9dc39e bad
+</code></pre></div>
+<p>This is identical to the git HEAD alias, and accepts the same <strong>tilde
+notation</strong> for specifying previous snapshots. For example, to verify
+the current HEAD&#39;s parent, you would use <code>origin:HEAD~</code>. To specify
+<em>that</em> snapshot&#39;s parent, use <code>origin:HEAD~2</code>, etc.</p>
+
+<p>There is also a <code>TAIL</code> alias which expands to the last snapshot in a
+sink, which works in exactly the same way as HEAD, except that the
+tilde notation counts <strong>backwards</strong> from oldest to newest. E.g. the
+second to last snapshot in sink origin is <code>origin:TAIL~</code>, and the one
+after that is <code>origin:TAIL~2</code>, etc.</p>
+
+<p>The second short-hand technique for specifying snapshots is to use
+<strong>branch</strong> notation. To specify a <em>branch</em> of snapshots (e.g. a
+snapshot and every one of its parents), append the snapshot ID with
+two dots (<code>..</code>). E.g. to verify every snapshot <em>except</em> the most
+recent one, use <code>origin:HEAD~..</code>. To select the last five snapshots in
+sink origin, use <code>origin:TAIL~4..</code>.</p>
+
+<h6>checkout</h6>
+
+<p>Now we cover what is arguable the most important component of a backup
+system: how to restore a backup. Of course a user may choose to
+transfer individual files from a snapshot at any time (the beauty of
+having a transparent backup system), but to restore an entire source
+to the state of a snapshot, the <code>checkout</code> command can be used.</p>
+
+<p>To checkout a snapshot, you simply need to use the command <code>checkout
+&lt;snapshot-id&gt;</code>. For example, to restore the state of a source to the
+second most recent snapshot on origin:</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">$ emu checkout origin:HEAD~
+Checking out origin:54121daf9f2b744570e8240ca43a483956f27056
+sending incremental file list
+
+sent 70 bytes  received 12 bytes  164.00 bytes/sec
+total size is 0  speedup is 0.00
+origin: HEAD at 54121daf9f2b744570e8240ca43a483956f27056
+Source restored from 2014-09-11 22.09.51
+</code></pre></div>
+<p>That&#39;s all there is to it. The <code>checkout</code> program uses exactly the
+same file transfer process as <code>push</code>, only in reverse. Notice that
+<code>checkout</code> will set the HEAD to point out to whatever snapshot you
+just checked out.</p>
+
+<p>You should be able to get by 90% of the time with just the commands
+we&#39;ve already covered. In Part 4, we&#39;ll cover the more exotic <code>squash</code>
+and <code>prune</code> commands, for performing more advanced backup
+administration.</p>
+
+<h4><a href="/posts/emu-by-example-4/">Part 4: Squash and prune</a></h4>
+
+
+        
+            <div class="nav">
+              <hr>
+
+              <div class="next">
+                
+                <a href="/posts/emu-by-example-4" title="Read the previous post">Newer post</a>
+                
+              </div>
+
+              <div class="previous">
+                
+                <a href="/posts/emu-by-example-3" title="Read the previous post">Older post</a>
+                
+              </div>
+
+              
+              <div class="date">
+                05 Sep 2014
+              </div>
+              
+          </div>
+        
+      </section>
+      <footer>
+        <center>
+          <p>
+            <small>
+              <a href="/posts/about">&copy; Chris Cummins 2015</a>
+            </small>
+          </p>
+        </center>
+      </footer>
+    </div>
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+    <script src="/js/site.min.js"></script>
+  </body>
+</html>
