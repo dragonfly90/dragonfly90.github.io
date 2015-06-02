@@ -1,13 +1,12 @@
 ---
 layout: default
-title: Chris Cummins
+title: Liang Dong
 ---
 
 # Hello.
 
-I'm Chris, a full time geek and research student with a passion for
-developing great software, often late at night. Ask me about open
-source, Linux, obscure LISP dialects, or 1960's Russian surfing rock.
+I'm Liang, a full time PhD student with a passion for
+programming. Ask me about Human Computer Interaction, Robotics and Artificial Intelligence.
 
 -----
 
