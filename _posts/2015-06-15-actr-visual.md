@@ -57,3 +57,7 @@ condition::=[buffer-test|query|eval|binding|multiple-value-binding]
 action::=[buffer-modification|request|buffer-clearing|modification-request|buffer-overwrite|eval|binding|multiple-value-binding|output|!stop!]
 
 buffer-test::=  =buffer>isa chunk-type slot-test*
+
+query::= ?buffer-name> query-test*
+
+query-test::= {1} queried-item query-value
