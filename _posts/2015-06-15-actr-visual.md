@@ -49,7 +49,10 @@ remove-visual-finsts
 p-name {doc-string} condition* ==> action*
 
 p-name::= a symbol that serves as the name of the production for reference
+
 doc-string::= a string which can be used to document the production
+
 condition::=[buffer-test|query|eval|binding|multiple-value-binding]
+
 action::=[buffer-modification|request|buffer-clearing|modification-request|buffer-overwrite|eval|binding|multiple-value-binding|output|!stop!]
 
