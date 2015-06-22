@@ -61,3 +61,11 @@ buffer-test::=  =buffer>isa chunk-type slot-test*
 query::= ?buffer-name> query-test*
 
 query-test::= {1} queried-item query-value
+
+eval :: =[!eval!][!safe-eval!] form
+
+binding :: =[!bind!][!safe-bind!] variable form
+
+multiple-value-binding :: =!mv--bind! (variable) form
+
+output :: =!output! [output-value] (format-string format-args*)|(output-value*)]
