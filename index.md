@@ -10,4 +10,6 @@ programming. Ask me about Human Computer Interaction, Robotics and Artificial In
 
 -----
 
+Template from［Chris］http://chriscummins.cc
+
 {% include posts.html %}
