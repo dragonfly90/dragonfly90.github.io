@@ -3,26 +3,26 @@ layout: default
 title: Open Source Projects
 ---
 
-# Hacks & Demos
+# User Interface
 
 <div class="thumbnails">
     <!-- Thumbnail row -->
     <div class="thumbnail">
-        <a href="/s/genetics/">
-            <div class="label"><p>Genetic<br/>Algorithms</p></div>
-            <div class="image"><img src="/images/projects/gyop.png" /></div>
+        <a href="/charts/linechart1.html">
+            <div class="label"><p>Line chart<br/> with legend</p></div>
+            <div class="image"><img src="/images/projects/chart.png" /></div>
         </a>
     </div>
     <div class="thumbnail">
-        <a href="/s/boids/">
-            <div class="label"><p>Flocking<br/>Behaviours</p></div>
-            <div class="image"><img src="/images/projects/boids.png" /></div>
+        <a href="/charts/linechart2.html">
+            <div class="label"><p>Line chart<br/> without legend</p></div>
+            <div class="image"><img src="/images/projects/chart.png" /></div>
         </a>
     </div>
     <div class="thumbnail">
-        <a href="/s/gol/">
-            <div class="label"><p>Conway's<br/>Game of Life</p></div>
-            <div class="image"><img src="/images/projects/gol.png" /></div>
+        <a href="/charts/barchart1.html">
+            <div class="label"><p>Bar <br/>chart</p></div>
+            <div class="image"><img src="/images/projects/chart.png" /></div>
         </a>
     </div>
 </div>
