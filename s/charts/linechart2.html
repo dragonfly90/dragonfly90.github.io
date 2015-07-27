@@ -69,19 +69,19 @@
     <script>
 
 //Width and height
-var w = 500;
-var h = 300;
+var w = screen.width;
+var h = screen.height;
 var padding = 50;
 
 var now = d3.time.hour.utc(new Date);
 var dataset = [
                [
-                    {x: d3.time.hour.utc.offset(now, -5), y: 0},
-                    {x: d3.time.hour.utc.offset(now, -4), y: 0},
+                    {x: d3.time.hour.utc.offset(now, -5), y: 0.1},
+                    {x: d3.time.hour.utc.offset(now, -4), y: 0.1},
                     {x: d3.time.hour.utc.offset(now, -3), y: 2},
-                    {x: d3.time.hour.utc.offset(now, -2), y: 0},
-                    {x: d3.time.hour.utc.offset(now, -1), y: 0},
-                    {x: now, y: 0}
+                    {x: d3.time.hour.utc.offset(now, -2), y: 0.1},
+                    {x: d3.time.hour.utc.offset(now, -1), y: 0.1},
+                    {x: now, y: 0.1}
                 ],
                [
                     {x: d3.time.hour.utc.offset(now, -5), y: 3},
@@ -101,7 +101,7 @@ var dataset = [
                 ]
                ];
 
-var color_hash = {  0 : ["apple", "green"],1 : ["mango", "orange"],2 : ["cherry", "red"]}
+var color_hash = {  0 : ["A", "green"],1 : ["B", "orange"],2 : ["C", "red"]}
 
 // Define axis ranges & scales
 var yExtents = d3.extent(d3.merge(dataset), function (d) { return d.y; });
@@ -182,7 +182,7 @@ svg.append("svg:text")
 .attr("class", "title")
 .attr("x", 20)
 .attr("y", 20)
-.text("Fruit Sold Per Hour");
+.text("Product Sold Per Hour");
 
 
 
@@ -193,16 +193,16 @@ svg.append("svg:text")
 svg.append("text")
 .attr("x", xScale(now)+10)
 .attr("y", yScale(0))
-.text("apple");
+.text("A");
 
 svg.append("text")
 .attr("x", xScale(now)+10)
 .attr("y", yScale(2))
-.text("mango");
+.text("B");
 
 svg.append("text")
 .attr("x", xScale(now)+10)
 .attr("y", yScale(1))
-.text("cherry");
+.text("C");
         </script>
 
