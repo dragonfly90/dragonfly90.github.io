@@ -8,19 +8,19 @@ title: Open Source Projects
 <div class="thumbnails">
     <!-- Thumbnail row -->
     <div class="thumbnail">
-        <a href="/charts/linechart1.html">
+        <a href="s/charts/linechart1.html">
             <div class="label"><p>Line chart<br/> with legend</p></div>
             <div class="image"><img src="/images/projects/chart.png" /></div>
         </a>
     </div>
     <div class="thumbnail">
-        <a href="/charts/linechart2.html">
+        <a href="s/charts/linechart2.html">
             <div class="label"><p>Line chart<br/> without legend</p></div>
             <div class="image"><img src="/images/projects/chart.png" /></div>
         </a>
     </div>
     <div class="thumbnail">
-        <a href="/charts/barchart1.html">
+        <a href="s/charts/barchart1.html">
             <div class="label"><p>Bar <br/>chart</p></div>
             <div class="image"><img src="/images/projects/chart.png" /></div>
         </a>
