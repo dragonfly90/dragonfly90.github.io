@@ -8,6 +8,8 @@ The trend of A
 
 # Javascript Implementation
 
+
+```
 <!DOCTYPE html>
 <html>
 <body>
@@ -28,3 +30,5 @@ document.getElementById("demo").style.backgroundColor = "red";
 
 </body>
 </html>
+
+```
