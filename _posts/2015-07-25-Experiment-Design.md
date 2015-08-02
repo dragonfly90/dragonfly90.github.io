@@ -11,14 +11,20 @@
 4. [Minimum wage since 1938](http://money.cnn.com/interactive/economy/minimum-wage-since-1938/)
 
 # Questions
+
 Is A larger than certain amout in one year
+
 Is A larger than B
+
 The trend of A
 
 # Goal
 1. Investigate the congnitive process of reading graphs on the internet
 
 2. Baed on congnitive process, Evaluate the benefits and shortcomes of different graphs 
+
+
+# Assumptions
 
 # Participants
 
