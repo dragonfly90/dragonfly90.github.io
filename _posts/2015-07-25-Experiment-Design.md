@@ -24,8 +24,8 @@ The trend of A
 2. Baed on congnitive process, Evaluate the benefits and shortcomes of different graphs 
 
 
-# Assumptions
-
+# Cognitive Assumptions
+1. Find dimension -> Find associated datapoint -> Get datapoint value
 # Participants
 
 # Javascript Implementation
