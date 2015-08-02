@@ -25,7 +25,11 @@ The trend of A
 
 
 # Cognitive Assumptions
+
 1. Find dimension -> Find associated datapoint -> Get datapoint value
+
+Line graph represents the trend fairly well, with grouped charts it can be difficult to tell the difference between totals in each group however it’s ideal to compare between each element in categories.
+
 # Participants
 
 # Javascript Implementation
