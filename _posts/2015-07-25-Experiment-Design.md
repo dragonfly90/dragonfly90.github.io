@@ -1,17 +1,20 @@
 
 # Experiment Design
 
-#Graph
-[New York Times: Manufacturing costs rose from 2004 to 2014 in most of the top 25 exporting countries](http://www.nytimes.com/interactive/2015/07/31/business/international/rising-cost-of-manufacturing.html)
+#Graph Popularity
+1. [New York Times: Manufacturing costs rose from 2004 to 2014 in most of the top 25 exporting countries](http://www.nytimes.com/interactive/2015/07/31/business/international/rising-cost-of-manufacturing.html)
 
-[Github Git](http://githut.info)
+2. [Github Git](http://githut.info)
+
 # Questions
 Is A larger than certain amout in 
 Is A larger than B
 The trend of A
 
 # Goal
-Investigate the congntive process of reading graphs in 
+1. Investigate the congnitive process of reading graphs on the internet
+
+2. Baed on congnitive process, Evaluate the benefits and shortcomes of different graphs 
 
 # Participants
 
