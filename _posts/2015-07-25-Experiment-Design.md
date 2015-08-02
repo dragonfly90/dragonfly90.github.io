@@ -6,8 +6,12 @@
 
 2. [Github Git](http://githut.info)
 
+3. [Business Insider: Apple no longer dominates the tablet market it created](http://www.businessinsider.com/apple-no-longer-dominates-the-tablet-market-it-created-2015-7?utm_source=linkedinticker&utm_medium=referral)
+
+4. [Minimum wage since 1938](http://money.cnn.com/interactive/economy/minimum-wage-since-1938/)
+
 # Questions
-Is A larger than certain amout in 
+Is A larger than certain amout in one year
 Is A larger than B
 The trend of A
 
