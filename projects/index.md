@@ -8,7 +8,7 @@ title: Open Source Projects
 <div class="thumbnails">
     <!-- Thumbnail row -->
     <div class="thumbnail">
-        <a href="http://dragonfly90.github.io/s/charts/linechart1.html">
+        <a href="http://dragonfly90.github.io/s/charts/index.html">
             <div class="label"><p>Line chart<br/> with legend</p></div>
             <div class="image"><img src="/images/projects/chart.png" /></div>
         </a>
