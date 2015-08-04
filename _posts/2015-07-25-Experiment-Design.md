@@ -18,43 +18,25 @@ Is A larger than B
 
 The trend of A
 
+# Assumption
+If the participant spends more time on fixation of one object, he spends more time understanding it. 
+
 # Goal
 1. Investigate the congnitive process of reading graphs on the internet
-
+Cognitive 
 2. Baed on congnitive process, Evaluate the benefits and shortcomes of different graphs 
 
 
-# Cognitive Assumptions
+# Validate the opinions or not?
 
-1. Find dimension -> Find associated datapoint -> Get datapoint value
+1. Associate the legend -> Find dimension -> Find associated datapoint -> Get datapoint value
 
-Line graph represents the trend fairly well, with grouped charts it can be difficult to tell the difference between totals in each group however it’s ideal to compare between each element in categories.
+
+2. Line graph represents the trend fairly well, with grouped charts it can be difficult to tell the difference between totals in each group however it’s ideal to compare between each element in categories.
 
 # Participants
 
-# Javascript Implementation
 
 
-```
-<!DOCTYPE html>
-<html>
-<body>
 
-<p>This example uses the addEventListener() method to attach a "keypress" event to an input element.</p>
 
-<p>Press a key inside the text field to set a red background color.</p>
-
-<input type="text" id="demo">
-
-<script>
-document.getElementById("demo").addEventListener("keypress", myFunction);
-
-function myFunction() {
-document.getElementById("demo").style.backgroundColor = "red";
-}
-</script>
-
-</body>
-</html>
-
-```
