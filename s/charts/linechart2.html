@@ -64,7 +64,7 @@
     </style>
 </head>
 
-<body>
+<body onkeydown="forward()">
     <script src="d3/d3.v3.min.js"></script>
     <script>
 
@@ -204,5 +204,14 @@ svg.append("text")
 .attr("x", xScale(now)+10)
 .attr("y", yScale(1))
 .text("C");
+
+
+function forward()
+{
+    if(event.keyCode==13)
+    {
+        window.location="barchart1.html"
+    }
+}
         </script>
 

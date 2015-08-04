@@ -64,8 +64,9 @@
     </style>
 </head>
 
-<body>
+<body onkeydown="forward()">
     <script src="d3/d3.v3.min.js"></script>
+    <script src="saveSvgAsPng.js"></script>
     <script>
 
 //Width and height
@@ -121,7 +122,8 @@ var yScale = d3.scale.linear()
 var svg = d3.select("body")
 .append("svg")
 .attr("width", w)
-.attr("height", h);
+.attr("height", h)
+.attr("id",'diagram');
 
 
 // Define lines
@@ -220,5 +222,14 @@ var text = color_hash[dataset.indexOf(d)][0];
 return text;
 });
 
-        </script>
+function forward()
+{
+    if(event.keyCode==13)
+    {
+        saveSvgAsPng(document.getElementById("diagram"), "eyetribediagram1.png");
+        window.location="answer1.html"
+    }
+}
+
+</script>
 
