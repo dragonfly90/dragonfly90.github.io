@@ -12,19 +12,22 @@
 
 # Questions
 
-Is A larger than certain amout in one year
+Point reading: Is A larger than certain amout in one year
 
-Is A larger than B
+Comparison: Is A larger than B
 
-The trend of A
+Trend Question: The trend of A over time
 
 # Assumption
 If the participant spends more time on fixation of one object, he spends more time understanding it. 
 
 # Goal
 1. Investigate the congnitive process of reading graphs on the internet
+
 Cognitive 
-2. Baed on congnitive process, Evaluate the benefits and shortcomes of different graphs 
+
+
+2. Evaluate the benefits and shortcomes of different graphs based on cognitive findings
 
 
 # Validate the opinions or not?
