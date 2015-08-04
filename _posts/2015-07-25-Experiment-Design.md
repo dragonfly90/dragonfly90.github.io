@@ -18,6 +18,10 @@ Comparison: Is A larger than B
 
 Trend Question: The trend of A over time
 
+Which plot is better in certain circumstance?
+
+How do eye movement patterns(cog strategy) depend on the data?
+
 # Assumption
 If the participant spends more time on fixation of one object, he spends more time understanding it. 
 
