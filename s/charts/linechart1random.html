@@ -232,12 +232,18 @@ var text = color_hash[dataset.indexOf(d)][0];
 return text;
 });
 
+var ws = new WebSocket("ws://127.0.0.1:8080/");
+
 function forward()
 {
     if(event.keyCode==13)
     {
         saveSvgAsPng(document.getElementById("diagram"), "eyetribediagram1.png");
-        window.location="answer1.html"
+        
+        ws.send("Hello Server");
+        
+
+        window.location="question1.html"
     }
 }
 

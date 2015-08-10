@@ -7,12 +7,15 @@
     <center style="font-size:160%">You can press enter key to continue</center>
 
 
+
     <script language="javascript">
+        var ws = new WebSocket("ws://127.0.0.1:8080/");
         function forward()
         {
             if(event.keyCode==13)
             {
-                window.location="linechart1.html"
+                ws.send("Hello Server");
+                window.location="linechart1.html";
             }
         }
     </script>
