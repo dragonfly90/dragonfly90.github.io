@@ -62,26 +62,37 @@
         font: 13px sans-serif;
     }
     </style>
-    
+
+    <script type="text/javascript" src="jquery-1.11.0.js"></script>
+    <script type='text/javascript' src="SaveBlob.js"></script>
     <SCRIPT LANGUAGE="JavaScript">
         function testResults (form) {
             var radios = document.getElementsByName('yesorno');
+            var f = "recordanswer.txt";
 
             for (var i = 0, length = radios.length; i < length; i++) {
                 if (radios[i].checked) {
                     // do whatever you want with the checked radio
-                    alert('Your answer is '+radios[i].value);
-
+                    //alert('Your answer is '+radios[i].value);
+                   // writeTextFile(f, radios[i].value);
+                    doSave(radios[i].value, "text/latex", "result4.txt");
+                    window.location="demo_question3_line.html"
                     // only one radio can be logically checked, don't check the rest
                     break;
                 }
             }
         }
+
+
+
+
+
+
     </SCRIPT>
 </head>
 
 <body >
- <center style="font-size:160%">Is the value of A bigger than 3 in 3:00 p.m.</center>
+<center style="font-size:160%"> Your answer</center>
     <form>
         <FORM NAME="myform" ACTION="" METHOD="GET">
             <center style="font-size:160%">

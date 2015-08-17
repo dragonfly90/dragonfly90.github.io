@@ -1,0 +1,44 @@
+
+    <html>
+
+    <body onkeydown="forward()">
+
+    <center style="font-size:160%">The trend of <a id="title"></a> from <a id="begintime"></a> p.m. to <a id="endtime"></a> p.m. </center>
+    <center style="font-size:160%">You can press enter key to continue</center>
+
+
+
+    <script language="javascript">
+        var mytitle=Math.ceil(Math.random()*3);
+
+        var mytime=Math.ceil(Math.random()*3)+2;
+
+        if(mytitle==1)
+        {
+            document.getElementById('title').innerHTML="A";
+        }
+        else
+        {
+            if(mytitle==2)
+                document.getElementById('title').innerHTML="B";
+            else
+                document.getElementById('title').innerHTML="C";
+        }
+
+
+        document.getElementById('begintime').innerHTML=mytime;
+
+        document.getElementById("endtime").innerHTML=mytime+3;
+
+        var ws = new WebSocket("ws://127.0.0.1:8080/");
+        function forward()
+        {
+            if(event.keyCode==13)
+            {
+                ws.send("Hello Server");
+                window.location="demo_linechart3.html";
+            }
+        }
+    </script>
+    </body>
+    </html>
