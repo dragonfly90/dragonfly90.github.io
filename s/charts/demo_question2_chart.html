@@ -3,8 +3,8 @@
 
     <body onkeydown="forward()">
 
-    <center style="font-size:160%">Is the value of <a id="title1"></a> bigger than <a id="title2"></a> at <a id="time"></a> p.m.</center>
-    <center style="font-size:160%">You can press enter key to continue</center>
+    <center style="font-size:160%">Is <a id="title1"></a> larger than <a id="title2"></a> at time <a id="time"></a> p.m.?</center>
+    <center style="font-size:160%">Press the Enter key to see the chart.</center>
 
 
 
@@ -50,12 +50,10 @@
 
         document.getElementById('time').innerHTML=mytime;
 
-        var ws = new WebSocket("ws://127.0.0.1:8080/");
-        function forward()
+         function forward()
         {
             if(event.keyCode==13)
             {
-                ws.send("Hello Server");
                 window.location="demo_barchart2.html";
             }
         }
