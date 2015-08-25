@@ -62,6 +62,7 @@
     .title {
         font: 26px sans-serif;
     }
+
 </style>
     <script src="d3/d3.v3.min.js"></script>
     <script src="saveSvgAsPng.js"></script>
@@ -72,7 +73,10 @@
 <body onkeydown="forward()">
 
 
-<center style="font-size:160%"><a id="content"></a></center>
+
+<p style="position: fixed; bottom: 60%; width:100%; text-align: center; font-size:200%" ><a id="flag"></a></p>
+<p style="position: fixed; bottom: 50%; width:100%; text-align: center; font-size:200%" ><a id="content"></a></p>
+
 
 
 <script language="javascript">
@@ -94,14 +98,25 @@
     var endStr="You have finished the experiment! Thank you!";
 
     var step;
+    var repeat=0;
     var currentSubStep=0;
     var question;
 
     var current=getUrlVars()["step"];
+    var currentRepeat=getUrlVars()["circle"];
+
     if(current!=null)
-        step=current;
+        step=Number(current);
     else
-        step=STATES.LINEGRAPH1.value;
+        step=STATES.TESTLINEGRAPH.value;
+
+    if(currentRepeat!=null)
+        repeat=Number(currentRepeat);
+
+    if(step==STATES.TESTBARGRAPH.value||step==STATES.TESTLINEGRAPH.value)
+    {
+        document.getElementById('flag').innerHTML="Practice";
+    }
 
     if(step==STATES.INTRODUCTION.value)
         document.getElementById('content').innerHTML=introductionStr;
@@ -109,7 +124,7 @@
         if(step==STATES.EXPERIMENTEND.value)
             document.getElementById('content').innerHTML=endStr;
         else
-            if(step==STATES.LINEGRAPH1.value||step==STATES.BARGRAPH1.value) {
+            if(step==STATES.LINEGRAPH1.value||step==STATES.BARGRAPH1.value||step==STATES.TESTLINEGRAPH.value) {
                 var mytitle = Math.ceil(Math.random() * 3);
                 var mynumber = Math.ceil(Math.random() * 3) + 1;
                 var mytime = Math.ceil(Math.random() * 3) + 3;
@@ -125,7 +140,7 @@
                         myvar = "C";
                 }
 
-                question = "Is " + myvar.toString() + " larger than " + mynumber.toString() + " at time " + mynumber.toString() + " p.m.?";
+                question = "Is " + myvar.toString() + " larger than " + mynumber.toString() + " at time " + mytime.toString() + " p.m.?";
 
                 document.getElementById('content').innerHTML = question;
             }
@@ -176,7 +191,7 @@
 
                 }
                 else
-                if(step==STATES.LINEGRAPH3.value||step==STATES.BARGRAPH3.value)
+                if(step==STATES.LINEGRAPH3.value||step==STATES.BARGRAPH3.value||step==STATES.TESTBARGRAPH.value)
                 {
                     var mytitle=Math.ceil(Math.random()*3);
 
@@ -198,7 +213,7 @@
                     }
 
 
-                    question =" Is the trend of "+myvariable.toString()+" from time "+ mytime.toString()+" p.m. to time "+ (mytime+3).toString()+" p.m. upward or downward?";
+                    question =" Is the trend of "+myvariable.toString()+" from time "+ mytime.toString()+" p.m. to time "+ (mytime+3).toString()+" p.m. upward?";
                     document.getElementById('content').innerHTML = question;
 
 
@@ -219,10 +234,10 @@
 
         var radios = document.getElementsByName('radioGrp');
         for (var i = 0, length = radios.length; i < length; i++) {
+            var nameNumber=step+repeat*6;
             if (radios[i].checked)
-                doSave("question: "+question+"  answer: "+radios[i].value, "text/latex", "result"+step+".txt");
+                doSave("question: "+question+"  answer: "+radios[i].value, "text/latex", "result"+nameNumber+".txt");
         }
-
         step++;
     }
 
@@ -238,8 +253,8 @@
 
             if (currentSubStep == 1) {
                 document.getElementById('content').innerHTML = '';
-
-                if(step==STATES.LINEGRAPH1.value||step==STATES.LINEGRAPH2.value||step==STATES.LINEGRAPH3.value) {
+                document.getElementById('flag').innerHTML='';
+                if(step==STATES.LINEGRAPH1.value||step==STATES.LINEGRAPH2.value||step==STATES.LINEGRAPH3.value||step==STATES.TESTLINEGRAPH.value) {
                     //Width and height
                     var w = screen.width;
                     var h = screen.height;
@@ -436,7 +451,7 @@
                 }
 
                 else
-                    if(step==STATES.BARGRAPH1.value||step==STATES.BARGRAPH2.value||step==STATES.BARGRAPH3.value)
+                    if(step==STATES.BARGRAPH1.value||step==STATES.BARGRAPH2.value||step==STATES.BARGRAPH3.value||step==STATES.TESTBARGRAPH.value)
                     {
                         var w = screen.width;
                         var h = screen.height;
@@ -611,7 +626,8 @@
             }
 
             if (currentSubStep == 2) {
-                saveSvgAsPng(document.getElementById("diagram"), "eyetribediagram"+step.toString()+".png");
+                var currentNumber=step+repeat*6;
+                saveSvgAsPng(document.getElementById("diagram"), "eyetribediagram"+currentNumber.toString()+".png");
                 try {
                     ws.send("end");
                 }
@@ -624,10 +640,22 @@
                 document.getElementById('content').innerHTML = question;
 
                 var f = document.createElement("form");
+                var savestr=step+1;
                 f.setAttribute('method', "post");
+                if(savestr==9&&repeat<2) {
+                    var addrepeat=repeat+1;
+                    savestr=3;
+                    f.setAttribute('action', 'OneHTML.html?step=' + savestr.toString()+"&circle="+addrepeat.toString());
+                }
+                else
+                {
+                    if(savestr==9&&repeat==2)
+                        f.setAttribute('action', 'OneHTML.html?step=' + savestr.toString());
+                    else
+                        f.setAttribute('action', 'OneHTML.html?step=' + savestr.toString()+"&circle="+repeat.toString());
 
-                f.setAttribute('action', 'OneHTML.html?step=' + step.toString());
-
+                }
+                f.setAttribute('style','position: fixed; bottom: 40%; width:100%; text-align: center; font-size:150%');
 
                 var objDiv = document.createElement("radioDiv");
 
@@ -655,7 +683,7 @@
 
                 var objTextNode1 = document.createTextNode("Yes");
                 var objTextNode2 = document.createTextNode("No");
-                var objTextNode3=document.createTextNode("notsure");
+                var objTextNode3=document.createTextNode("not sure");
 
                 var objLabel = document.createElement("label");
                 objLabel.htmlFor = radioItem1.id;
