@@ -63,6 +63,7 @@
         font: 26px sans-serif;
     }
 
+    .block label { display: inline-block; width: 140px; text-align: left; }​
 </style>
     <script src="d3/d3.v3.min.js"></script>
     <script src="saveSvgAsPng.js"></script>
@@ -655,7 +656,8 @@
                         f.setAttribute('action', 'OneHTML.html?step=' + savestr.toString()+"&circle="+repeat.toString());
 
                 }
-                f.setAttribute('style','position: fixed; bottom: 40%; width:100%; text-align: center; font-size:150%');
+                f.setAttribute('style','position: fixed; bottom: 30%; width:100%; text-align: center; font-size:150%');
+                f.setAttribute('class','block');
 
                 var objDiv = document.createElement("radioDiv");
 
@@ -665,8 +667,8 @@
                 radioItem1.id = "rad1";
                 radioItem1.value = "yes";
 
-                radioItem1.defaultChecked = true;
-                radioItem1.checked = true;
+                //radioItem1.defaultChecked = true;
+                //radioItem1.checked = true;
 
                 var radioItem2 = document.createElement("input");
                 radioItem2.type = "radio";
@@ -682,18 +684,22 @@
 
 
                 var objTextNode1 = document.createTextNode("Yes");
+
                 var objTextNode2 = document.createTextNode("No");
-                var objTextNode3=document.createTextNode("not sure");
+                var objTextNode3=document.createTextNode("Not sure");
 
                 var objLabel = document.createElement("label");
                 objLabel.htmlFor = radioItem1.id;
                 objLabel.appendChild(radioItem1);
                 objLabel.appendChild(objTextNode1);
 
+
                 var objLabel2 = document.createElement("label");
                 objLabel2.htmlFor = radioItem2.id;
                 objLabel2.appendChild(radioItem2);
                 objLabel2.appendChild(objTextNode2);
+
+
 
                 var objLabel3 = document.createElement("label");
                 objLabel3.htmlFor = radioItem3.id;
@@ -701,7 +707,9 @@
                 objLabel3.appendChild(objTextNode3);
 
                 objDiv.appendChild(objLabel);
+                objDiv.appendChild(document.createElement ("br"));
                 objDiv.appendChild(objLabel2);
+                objDiv.appendChild(document.createElement ("br"));
                 objDiv.appendChild(objLabel3);
 
                 var mybutton = document.createElement("button");
@@ -714,8 +722,8 @@
                 mybutton.onclick = myOnClick;
 
                 //setting the height and width isn't essential for IE, but is essential for Netscape
-                mybutton.style.height = 20;
-                mybutton.style.width = 75;
+                mybutton.style.height = 30;
+                mybutton.style.width = 100;
 
                 //assign the value of the button
                 var theText = document.createTextNode("Submit");
@@ -723,6 +731,7 @@
                 mybutton.appendChild(theText);
 
                 f.appendChild(objDiv);
+                objDiv.appendChild(document.createElement ("br"));
                 f.appendChild(mybutton);
 
                 //and some more input elements here
