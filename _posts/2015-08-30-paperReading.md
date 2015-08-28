@@ -26,6 +26,30 @@ This paper is a useful search in application of HPCC in academic data , a good s
 Give a brief
 #The conclusion of your review.
 
-This paper makes a good summary of hpcc application. But the 
+This paper makes a good summary of hpcc application. But the discussion is not so convincing.
 
 
+#Managing the academic data lifecycle: A case study of HPCC
+Payne, Michael E., et al. "Managing the academic data lifecycle: A case study of HPCC." Big Data (Big Data), 2014 IEEE International Conference on. IEEE, 2014.
+
+1.data storage
+IPEDS: The Integrated Postsecondary Education Data System
+NCSES: National Center for Science and Engineering Statistics
+2.HPCC
+Thor: the data refinery for cleaning and ETL (extract, transform, load) processing large amounts of data
+Roxie (Rapid Online XML Inquiry Engine): the data delivery engine for online high-performance structured querying and analysis.
+
+##The summary of the paper: Objectively describe paper without any subjective assessment.
+
+
+In this research paper the authors introduce the High Performance Computing Cluster (HPCC) as a platform to streamline the process of ingesting, curating, integrating and transforming scholarly data from multiple sources and in varying formats, particularly when several of these datasets lack common attributes to support the integration process.
+
+##The strengths of the paper: Describe what you believe are the strengths of the paper.
+  The part 3 introduces high performance computing cluster including hpcc architecture and enterprise control language, which is good for amature. 
+  
+#The weaknesses of the paper: Describe the weakness of the paper in a constructive manner. For example, you may elaborate what the authors could have done to improve the quality of the paper.
+The graphs in the paper are not clear and concise
+  
+##The impact of the paper: Assess and elaborate if the paper addresses an important problem in this part.
+
+##The conclusion of your review.
