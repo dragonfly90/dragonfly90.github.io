@@ -4,6 +4,8 @@ Managing the Academic Data Lifecycle: A Case Study of HPCC
 
 In this research paper the authors introduce the High Performance Computing Cluster (HPCC) as a platform to streamline the process of ingesting, curating, integrating and transforming scholarly data from multiple sources and in varying formats, particularly when several of these datasets lack common attributes to support the integration process.
 
+This paper did a case study of High Performance Computing Cluster(HPCC) in academic data processing. The academic data comes from NSF, NCSES and IPEDS and is in different formats. In the first part, this paper gave a brief discussion of HPCC platform. In the second part, the paper gave a detailed description of the case study in three steps: data ingestion, cleaning and linking data. In the third part, the authors evaluate the performance of HPCC in clusters with different numbers of nodes and discuss HPCC and Hadoop platform.
+
 steps to process data:
 data ingestion
 cleaning and linking data
@@ -17,7 +19,7 @@ This paper gives detailed description of a HPCC application. It is a good tutori
 The graphs are not clear, 
 The dataset is small and the computation is not much, maybe the example is not good for distributed computing.
 Lack analysis of the performance of HPCC under different nodes.
-
+performance and discussion are not closely related .
 #The impact of the paper: Assess and elaborate if the paper addresses an important problem in this part.
 This paper is a useful search in application of HPCC in academic data , a good start for large academic data.
 
