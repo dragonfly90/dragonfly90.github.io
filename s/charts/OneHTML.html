@@ -307,7 +307,18 @@
                         ]
                     ];
 
-                    var color_hash = {0: ["A", "green"], 1: ["B", "orange"], 2: ["C", "red"]}
+                    var color_hash;
+                    var colorSelection=Math.ceil(Math.random()*4);
+                    if(colorSelection==1)
+                        color_hash = {  0 : ["A", "green"],1 : ["B", "orange"],2 : ["C", "red"]};
+                    else
+                    if(colorSelection==2)
+                        color_hash={0: ["B","green"],1: ["C","orange"],2: ["A","red"]};
+                    else
+                    if(colorSelection==3)
+                        color_hash={0: ["A","red"],1: ["C","orange"],2: ["B","green"]}
+                    else
+                        color_hash={0: ["C","red"],1: ["B","green"],2: ["A","orange"]};
 
                     // Define axis ranges & scales
                     var yExtents = d3.extent(d3.merge(dataset), function (d) {
@@ -496,7 +507,19 @@
                             ]
                         ];
 
-                        var color_hash = {  0 : ["A", "green"],1 : ["B", "orange"],2 : ["C", "red"]}
+                        var color_hash;
+                        var colorSelection=Math.ceil(Math.random()*4);
+                        if(colorSelection==1)
+                               color_hash = {  0 : ["A", "green"],1 : ["B", "orange"],2 : ["C", "red"]};
+                        else
+                            if(colorSelection==2)
+                                color_hash={0: ["B","green"],1: ["C","orange"],2: ["A","red"]};
+                            else
+                                if(colorSelection==3)
+                                    color_hash={0: ["A","red"],1: ["C","orange"],2: ["B","green"]}
+                                else
+                                    color_hash={0: ["C","red"],1: ["B","green"],2: ["A","orange"]};
+
 
 // Define axis ranges & scales
                         var yExtents = d3.extent(d3.merge(dataset), function (d) { return d.y; });
