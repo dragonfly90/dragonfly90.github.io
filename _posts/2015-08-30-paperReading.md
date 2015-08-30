@@ -12,11 +12,12 @@ cleaning and linking data
 
 
 #The strengths of the paper: Describe what you believe are the strengths of the paper.
-This paper gives detailed description of a HPCC application. It is a good tutorial for HPCC learners.  Part 2 talks about ETL (extract, transform, load) language ,parallel batch data processing (Thor) and high-performance online query applications using indexed data files (Roxie)
+This paper gives detailed description of a HPCC application. It is a good tutorial for HPCC learners.  Take Part 3 for example, it talks a lot about ETL (extract, transform, load) language ,parallel batch data processing (Thor) and high-performance online query applications using indexed data files (Roxie). For HPCC learners, it is good to introduce ETL types and formats like a textbook. Moreover, part 4 discusses the process of HPCC application. It even explains reserved keyword EXPORT in ETL language, which is boring for experts but necessary for learners.
+In part 6, the authors discusses the similarities and differences between the Hadoop and HPCC platforms and 
 
 #The weaknesses of the paper: Describe the weakness of the paper in a constructive manner. For example, you may elaborate what the authors could have done to improve the quality of the paper.
 
-The graphs are not clear, 
+The graphs are not clear. For example, graph 1(Thor Cluster) is from wikipedia but missing some explanation. And I am wondering why the authors leave out the Roxie Cluster graph. Graph 9 is confusing because of unclear words. 
 The dataset is small and the computation is not much, maybe the example is not good for distributed computing.
 Lack analysis of the performance of HPCC under different nodes.
 performance and discussion are not closely related .
