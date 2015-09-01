@@ -48,6 +48,9 @@ Cognitive
 
 # Software Tools
 Eye Movement Classification Software From [Oleg Komogortsev](http://cs.txstate.edu/~ok11/index.html)
+
 [jetty Websocket](http://eclipse.org/jetty/)
+
 [d3](http://d3js.org)
+
 [Bootstrap](http://getbootstrap.com)
