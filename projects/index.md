@@ -25,8 +25,7 @@ title: Open Source Projects
             <div class="image"><img src="/images/projects/leetcode.png" /></div>
         </a>
     </div>
-       </div>
-
+      
 </div>
 
 # Contributions
@@ -47,6 +46,6 @@ title: Open Source Projects
             <div class="image"><img src="/images/projects/robot.JPG" /></div>
         </a>
     </div>
-    <div class="thumbnail">
+    
 
 </div>
