@@ -1,6 +1,6 @@
 # Review of The Paper "Managing the Academic Data Lifecycle: A Case Study of HPCC"
 
-过去时--
+
 
 # Summary
 The paper did a case study of High Performance Computing Cluster(HPCC) in academic data processing. One author of the paper is from Lexisnexis which invented HPCC. And three others are from Big Data Systems Lab in Clemson University. It is assumed that they have much experience in HPCC. In the paper, the academic data comes from NSF(National Science Foundation), NCSES(National Center for Educational Statistics ), National Research Council(NRC), Integrated Postsecondary Education Data System(IPEDS) and other organizations. So the data is in very different formats and unstructured.
