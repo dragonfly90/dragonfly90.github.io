@@ -43,7 +43,7 @@ Cognitive
 
 # Participants
 
-# Discoveries
+# Results
 
 ## Line Graph point reading
 
@@ -56,6 +56,7 @@ Person 1:
 (3) Legend -> X axis -> Line -> Legend -> Y axis
 
 Person 2:
+
 (1) X axis -> Legend -> Line -> X axis -> Line -> Y axis
 
 (2) X axis -> Legend -> Line -> Y axis ->  X axis -> Line ->  Y axis
@@ -63,6 +64,7 @@ Person 2:
 (3) X axis -> Legend -> Line -> X axis -> Line -> Y axis -> X axis
 
 Person 3:
+
 (1) Legend -> X axis -> Line -> Y axis
 
 (2) not clear
@@ -71,6 +73,7 @@ Person 3:
 
 
 ## Bar Graph point reading
+
 Person 1:
 
 (1) Legend -> X axis -> Bar -> Legend -> Bar -> Y axis
@@ -94,6 +97,16 @@ Person 3:
 (2) Legend -> X axis -> Bar , not clear
 
 (3) Legend -> X axis -> Y axis , not clear
+
+# Discoveries
+
+## starting gaze point
+
+For person 1: starting gaze point is always legend:  20/20
+
+For person 2: starting gaze point is 10/20, exactly half.
+
+For person 3: Data is missing 
 
 # Software Tools
 Eye Movement Classification Software From [Oleg Komogortsev](http://cs.txstate.edu/~ok11/index.html)
