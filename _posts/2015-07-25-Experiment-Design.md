@@ -43,8 +43,36 @@ Cognitive
 
 # Participants
 
+# Discoveries
+
+## Line Graph point reading
+
+Person 1: 
+(1) Legend -> X axis -> Line -> Y axis -> Line -> X axis
+(2) Legend -> X axis -> Line -> Y axis -> Line -> X axis -> Legend -> Y axis -> Line
+(3) Legend -> X axis -> Line -> Legend -> Y axis
+
+Person 2:
+(1) X axis -> Legend -> Line -> X axis -> Line -> Y axis
+(2) X axis -> Legend -> Line -> Y axis ->  X axis -> Line ->  Y axis
+(3) X axis -> Legend -> Line -> X axis -> Line -> Y axis -> X axis
+
+Person 3:
+(1) Legend -> X axis -> Line -> Y axis
+(2) not clear
+(3) Legend -> X axis -> Line -> Y axis -> Line
 
 
+## Bar Graph point reading
+Person 1:
+(1) Legend -> X axis -> Bar -> Legend -> Bar -> Y axis
+(2) Legend -> X axis -> Legend -> Bar -> Y axis
+(3) Legend -> X axis -> Legend -> Bar -> Y axis
+
+Person 2:
+(1) Legend -> X axis -> Bar -> Y axis -> Bar -> Y axis -> Bar -> Legend -> Bar -> Y axis
+(2) Legend -> X axis -> Bar -> Y axis -> Bar -> Y axis -> Bar 
+(3)
 
 # Software Tools
 Eye Movement Classification Software From [Oleg Komogortsev](http://cs.txstate.edu/~ok11/index.html)
