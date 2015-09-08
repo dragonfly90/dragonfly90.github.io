@@ -28,8 +28,6 @@ If the participant spends more time on fixation of one object, he spends more ti
 # Goal
 1. Investigate the congnitive process of reading graphs on the internet
 
-Cognitive 
-
 
 2. Evaluate the benefits and shortcomes of different graphs based on cognitive findings
 
@@ -46,6 +44,9 @@ Cognitive
 # Results
 
 ## Line Graph point reading
+
+[GitHub Logo](../images/projects/eyetribe.png)
+
 
 Person 1: 
 
