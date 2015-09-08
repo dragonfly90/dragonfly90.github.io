@@ -106,7 +106,7 @@ For person 1: starting gaze point is always legend:  20/20
 
 For person 2: starting gaze point is 10/20, exactly half.
 
-For person 3: Data is missing 
+For person 3: starting gaze point is unclear because the experiment data is not reliable. 
 
 # Software Tools
 Eye Movement Classification Software From [Oleg Komogortsev](http://cs.txstate.edu/~ok11/index.html)
