@@ -45,7 +45,7 @@ If the participant spends more time on fixation of one object, he spends more ti
 
 ## Line Graph point reading
 
-[GitHub Logo](../images/projects/eyetribe.png)
+![GitHub Logo](../images/projects/eyetribe.png)
 
 
 Person 1: 
