@@ -7,7 +7,7 @@ title: Curriculum Vitae
 
 ###### North Carolina State University (2014)
 
- * PhD in Computer Science (ongoing)
+ * Graduate student in Computer Science (ongoing)
 
 ###### Nankai  University (2014)
 
@@ -35,16 +35,12 @@ Developed image processing software to detect defects in plastic USB adapters
 
 ###### Software Engineering
 
-Advanced programming in Python, Clojure, C/C++, JavaScript, and
-Java. Full stack experience from debugging kernel drivers to web
-front-end development. Particular interest in low level systems and OS
-development, compilers and languages, concurrent and distributed
-systems.
+Advanced programming in C/C++, Python, JavaScript, and
+Java.  Particular interest in Web development and Data Analytics.
 
 ###### Electronic Engineering
 
 Traditional engineering background in engineering and mathematics,
-covering digital logic synthesis, networking theory and protocols,
 hardware design, analogue electronics, and embedded systems.
 
 ###### Communication skills
