@@ -127,9 +127,23 @@ Eye Movement Classification Software From [Oleg Komogortsev](http://cs.txstate.e
 
 # Result
 
+ACT-R
+
 ## Line graph
 Point reading: Is A larger than certain amout in one year
-
+3.095S, 3.580S, 4.015S
 Comparison: Is A larger than B
+3.015
 
 Trend Question: The trend of A over time
+3.670
+
+## Bar graph
+## Line graph
+Point reading: Is A larger than certain amout in one year
+3.095S,
+Comparison: Is A larger than B
+3.015
+
+Trend Question: The trend of A over time
+3.670, 3.385
