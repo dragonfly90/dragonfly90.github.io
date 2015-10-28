@@ -126,3 +126,10 @@ Eye Movement Classification Software From [Oleg Komogortsev](http://cs.txstate.e
 
 
 # Result
+
+## Line graph
+Point reading: Is A larger than certain amout in one year
+
+Comparison: Is A larger than B
+
+Trend Question: The trend of A over time
