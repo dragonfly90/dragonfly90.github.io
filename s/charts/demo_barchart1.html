@@ -235,15 +235,15 @@ var text = color_hash[dataset.indexOf(d)][0];
 return text;
 });
 
-var ws = new WebSocket("ws://127.0.0.1:8080/");
+//var ws = new WebSocket("ws://127.0.0.1:8080/");
 
 function forward()
 {
     if(event.keyCode==13)
     {
-        saveSvgAsPng(document.getElementById("diagram"), "eyetribediagram2.png");
-	ws.send("end");
- window.location="demo_question1_chart_answer.html";
+        //saveSvgAsPng(document.getElementById("diagram"), "eyetribediagram2.png");
+        //ws.send("end");
+        window.location="demo_question1_chart_answer.html";
 
           }
 }
