@@ -10,3 +10,12 @@
  
  6. Do you think the GUI based machine learning tool will ease the work?
  
+GUI based machine learning tools
+
+orange
+
+h2o flow
+
+weka
+
+Microsoft/Amazon machine learning studio
