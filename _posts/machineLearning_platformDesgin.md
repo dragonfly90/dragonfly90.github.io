@@ -1,0 +1,12 @@
+ 1. Do you know the titanic problem
+ 
+ 2. How do you solve the titanic binary classification problem?
+ 
+ 3. Could I observe the way you solve the problem
+ 
+ 4. What language and tool do you use to solve this problem?
+ 
+ 5. Do you know any GUI based machine learning tool?
+ 
+ 6. Do you think the GUI based machine learning tool will ease the work?
+ 
