@@ -19,3 +19,16 @@ h2o flow
 weka
 
 Microsoft/Amazon machine learning studio
+
+
+I learned to use the "command" version quickly
+
+easy to use
+
+recommend
+
+productive
+
+creative, imaginative, exploratory,
+
+easier to try different variations
