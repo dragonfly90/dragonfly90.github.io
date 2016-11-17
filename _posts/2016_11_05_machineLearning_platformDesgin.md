@@ -2,9 +2,9 @@
  
  2. How do you solve the titanic binary classification problem?
  
- 3. Could I observe the way you solve the problem
+ 3. What language and tool do you use to solve this problem?
  
- 4. What language and tool do you use to solve this problem?
+ 4. Could I screen record the process you solve the problem
  
  5. Do you know any GUI based machine learning tool?
  
