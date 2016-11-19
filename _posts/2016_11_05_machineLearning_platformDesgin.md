@@ -1,14 +1,21 @@
- 1. Do you know the titanic problem
+ Before the experiment 
  
- 2. How do you solve the titanic binary classification problem?
+ 1. What projects have you done in machine learning/data mining?
  
- 3. What language and tool do you use to solve this problem?
+ 2. Given the problem, how will you solve the titanic binary classification problem?
  
- 4. Could I screen record the process you solve the problem
+ 3. What language, APIs and tools will you use to solve this problem?
  
- 5. Do you know any GUI based machine learning tool?
  
- 6. Do you think the GUI based machine learning tool will ease the work?
+ 
+ After the experiment
+ 1.How do you like the experience?
+ 
+ 2.Do you have any painpoints in solving this problem?
+ 
+ 3. Do you know any GUI based machine learning tool?
+ 
+ 4. Do you think the GUI based machine learning tool will ease the work?
  
 GUI based machine learning tools
 
