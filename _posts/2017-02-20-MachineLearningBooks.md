@@ -19,3 +19,8 @@ Statistical learning:
 Deep learning: 
 
 1) http://www.deeplearningbook.org/ 
+
+
+Python Reference:
+
+1) http://anandology.com/python-practice-book/index.html
