@@ -24,3 +24,6 @@ Deep learning:
 Python Reference:
 
 1) http://anandology.com/python-practice-book/index.html
+
+
+From Dr. Tianfu Wu(http://www4.ncsu.edu/~twu19/)
