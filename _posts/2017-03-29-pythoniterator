@@ -1,0 +1,10 @@
+How to understand python iterator
+
+http://nvie.com/posts/iterators-vs-generators/
+
+a container
+an iterable
+an iterator
+a generator
+a generator expression
+a {list, set, dict} comprehension
